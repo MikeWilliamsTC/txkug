@@ -2,35 +2,8 @@
 
 @section('content')
 
-    <section class="section feature-box" id="app-todo">
-        <h1 class="section-heading wow fadeIn" data-wow-delay="0.2s">Stuff we need to do</h1>
-
-        <div class="row features-small">
-            <div class="col-md-3 offset-3">
-                <h2>Public</h2>
-                <ul>
-                    <li>Upcoming events</li>
-                    <li>News</li>
-                    <li>Twitter Feed</li>
-                    <li>Facebook Feed</li>
-                    <li>Meeting Checkin</li>
-                </ul>
-            </div>
-
-            <div class="col-md-3">
-                <h2>User</h2>
-                <ul>
-                    <li>Upcoming events Slack Notification Event</li>
-                    <li>Meeting Checkin </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <hr class="between-sections">
-
     <section class="section feature-box" id="best-features">
-        <h1 class="section-heading wow fadeIn" data-wow-delay="0.2s">Why are we so great?<br/>Who knows???</h1>
+        <h1 class="section-heading wow fadeIn" data-wow-delay="0.2s">Why are we so great? <br /> Because YOU are a TXKUG member!</h1>
         <p class="section-description lead wow fadeIn" data-wow-delay="0.4s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam. Quia, minima?</p>
         <div class="row features-small">
             <div class="col-md-4 wow fadeInRight" data-wow-delay="0.2s">
