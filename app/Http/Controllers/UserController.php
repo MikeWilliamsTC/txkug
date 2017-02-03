@@ -2,27 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Auth;
+use App\Models\Event;
+use App\Models\User;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
+    public function index() {
+
+        $event = Event::with('venue')
+            ->where('stops_at', '>=', Carbon::now()->toDateTimeString())
+            ->orderBy('stops_at')
+            ->first();
+
+        return view('panels.user.home', compact('event'));
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('home');
+    public function events() {
+        $user = User::with('roles', 'participations')->orderBy('last_name')->find(Auth::id());
+        return view ('panels.user.events', compact('user'));
     }
 }

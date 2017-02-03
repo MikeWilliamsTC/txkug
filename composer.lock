@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "368ffcba79f8805bc77e657fe9e6a147",
+    "content-hash": "2df25c150b459707b0aa92a3f144a654",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -613,16 +613,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.4.8",
+            "version": "v5.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "3e226e3481aabe835626739a1507c8af17b76082"
+                "reference": "600330ae1d218919b3b307e0578461a2df248663"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/3e226e3481aabe835626739a1507c8af17b76082",
-                "reference": "3e226e3481aabe835626739a1507c8af17b76082",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/600330ae1d218919b3b307e0578461a2df248663",
+                "reference": "600330ae1d218919b3b307e0578461a2df248663",
                 "shasum": ""
             },
             "require": {
@@ -738,27 +738,27 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-02-01T14:45:01+00:00"
+            "time": "2017-02-03T19:47:35+00:00"
         },
         {
             "name": "laravel/socialite",
-            "version": "v2.0.20",
+            "version": "v3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "aca8de9a93a28a119714e289c8bc599bd81aa88d"
+                "reference": "01588748beef55ad5dd4f172d235548d3a6be79a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/aca8de9a93a28a119714e289c8bc599bd81aa88d",
-                "reference": "aca8de9a93a28a119714e289c8bc599bd81aa88d",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/01588748beef55ad5dd4f172d235548d3a6be79a",
+                "reference": "01588748beef55ad5dd4f172d235548d3a6be79a",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/guzzle": "~5.0|~6.0",
-                "illuminate/contracts": "~5.0",
-                "illuminate/http": "~5.0",
-                "illuminate/support": "~5.0",
+                "guzzlehttp/guzzle": "~6.0",
+                "illuminate/contracts": "~5.4",
+                "illuminate/http": "~5.4",
+                "illuminate/support": "~5.4",
                 "league/oauth1-client": "~1.0",
                 "php": ">=5.4.0"
             },
@@ -792,7 +792,7 @@
                 "laravel",
                 "oauth"
             ],
-            "time": "2016-11-01T18:49:10+00:00"
+            "time": "2017-02-01T13:43:56+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -1630,20 +1630,20 @@
         },
         {
             "name": "socialiteproviders/manager",
-            "version": "v2.2.1",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SocialiteProviders/Manager.git",
-                "reference": "775bd7f25c71ed88e9ae73ed52ba129fecc7abd0"
+                "reference": "3bf2b405b6bfd4bec66f706f5390323f51033eb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SocialiteProviders/Manager/zipball/775bd7f25c71ed88e9ae73ed52ba129fecc7abd0",
-                "reference": "775bd7f25c71ed88e9ae73ed52ba129fecc7abd0",
+                "url": "https://api.github.com/repos/SocialiteProviders/Manager/zipball/3bf2b405b6bfd4bec66f706f5390323f51033eb1",
+                "reference": "3bf2b405b6bfd4bec66f706f5390323f51033eb1",
                 "shasum": ""
             },
             "require": {
-                "laravel/socialite": "~2.0",
+                "laravel/socialite": "~3.0",
                 "php": "^5.6 || ^7.0"
             },
             "require-dev": {
@@ -1668,30 +1668,30 @@
                 }
             ],
             "description": "Easily add new or override built-in providers in Laravel Socialite.",
-            "time": "2016-12-04T07:11:20+00:00"
+            "time": "2017-01-27T08:35:03+00:00"
         },
         {
             "name": "socialiteproviders/slack",
-            "version": "v2.0.1",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SocialiteProviders/Slack.git",
-                "reference": "491f9b41cff8f71caf8e8e0abba7efd18c86e3e8"
+                "reference": "a0d676a07bb8293547df6678f1da0258ac40bfec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SocialiteProviders/Slack/zipball/491f9b41cff8f71caf8e8e0abba7efd18c86e3e8",
-                "reference": "491f9b41cff8f71caf8e8e0abba7efd18c86e3e8",
+                "url": "https://api.github.com/repos/SocialiteProviders/Slack/zipball/a0d676a07bb8293547df6678f1da0258ac40bfec",
+                "reference": "a0d676a07bb8293547df6678f1da0258ac40bfec",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.6 || ^7.0",
-                "socialiteproviders/manager": "~2.0"
+                "socialiteproviders/manager": "~3.0"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "SocialiteProviders\\Slack\\": "src/"
+                    "SocialiteProviders\\Slack\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1700,174 +1700,12 @@
             ],
             "authors": [
                 {
-                    "name": "DraperStudio",
-                    "email": "hello@draperstud.io"
+                    "name": "Brian Faust",
+                    "email": "hello@brianfaust.de"
                 }
             ],
             "description": "Slack OAuth2 Provider for Laravel Socialite",
-            "time": "2016-07-20T15:40:01+00:00"
-        },
-        {
-            "name": "spatie/db-dumper",
-            "version": "2.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/db-dumper.git",
-                "reference": "731a809475b0fab1dc79ded289537de5e66774a4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/db-dumper/zipball/731a809475b0fab1dc79ded289537de5e66774a4",
-                "reference": "731a809475b0fab1dc79ded289537de5e66774a4",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.0",
-                "symfony/process": "^3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\DbDumper\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Dump databases",
-            "homepage": "https://github.com/spatie/db-dumper",
-            "keywords": [
-                "database",
-                "db-dumper",
-                "dump",
-                "mysqldump",
-                "spatie"
-            ],
-            "time": "2016-12-31T10:06:56+00:00"
-        },
-        {
-            "name": "spatie/laravel-backup",
-            "version": "4.4.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "814fa836ca72e48109181452f2a28bd573ef7c40"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/814fa836ca72e48109181452f2a28bd573ef7c40",
-                "reference": "814fa836ca72e48109181452f2a28bd573ef7c40",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "~5.3.28|~5.4.0",
-                "illuminate/contracts": "~5.3.28|~5.4.0",
-                "illuminate/events": "~5.3.28|~5.4.0",
-                "illuminate/filesystem": "~5.3.28|~5.4.0",
-                "illuminate/notifications": "~5.3.28|~5.4.0",
-                "illuminate/support": "~5.3.28|~5.4.0",
-                "league/flysystem": "^1.0.27",
-                "php": "^7.0",
-                "spatie/db-dumper": "^2.1",
-                "spatie/temporary-directory": "^1.0",
-                "symfony/finder": "^3.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^0.9.5",
-                "orchestra/testbench": "~3.3.3|~3.4.0",
-                "phpunit/phpunit": "^5.3.0"
-            },
-            "suggest": {
-                "guzzlehttp/guzzle": "Allows notifications to be sent via Slack"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\Backup\\": "src"
-                },
-                "files": [
-                    "src/Helpers/functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A Laravel 5 package to backup your application",
-            "homepage": "https://github.com/spatie/laravel-backup",
-            "keywords": [
-                "backup",
-                "database",
-                "laravel-backup",
-                "spatie"
-            ],
-            "time": "2017-02-02T12:27:07+00:00"
-        },
-        {
-            "name": "spatie/temporary-directory",
-            "version": "1.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/temporary-directory.git",
-                "reference": "58e80a88c3fd463d502807614e88c1aec62e79dc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/temporary-directory/zipball/58e80a88c3fd463d502807614e88c1aec62e79dc",
-                "reference": "58e80a88c3fd463d502807614e88c1aec62e79dc",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "5.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\TemporaryDirectory\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Alex Vanderbist",
-                    "email": "alex@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "The `temporary-directory` package allows you to easily create, use and destroy temporary directories.",
-            "homepage": "https://github.com/spatie/temporary-directory",
-            "keywords": [
-                "spatie",
-                "temporary-directory"
-            ],
-            "time": "2017-02-02T13:08:42+00:00"
+            "time": "2017-01-25T09:48:29+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4224,6 +4062,168 @@
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
             "time": "2016-10-03T07:35:21+00:00"
+        },
+        {
+            "name": "spatie/db-dumper",
+            "version": "2.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/db-dumper.git",
+                "reference": "731a809475b0fab1dc79ded289537de5e66774a4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/db-dumper/zipball/731a809475b0fab1dc79ded289537de5e66774a4",
+                "reference": "731a809475b0fab1dc79ded289537de5e66774a4",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0",
+                "symfony/process": "^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\DbDumper\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Dump databases",
+            "homepage": "https://github.com/spatie/db-dumper",
+            "keywords": [
+                "database",
+                "db-dumper",
+                "dump",
+                "mysqldump",
+                "spatie"
+            ],
+            "time": "2016-12-31T10:06:56+00:00"
+        },
+        {
+            "name": "spatie/laravel-backup",
+            "version": "4.4.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-backup.git",
+                "reference": "4010cf34b464ea301784bfe90e6ac53a42b45a05"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/4010cf34b464ea301784bfe90e6ac53a42b45a05",
+                "reference": "4010cf34b464ea301784bfe90e6ac53a42b45a05",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "~5.3.28|~5.4.0",
+                "illuminate/contracts": "~5.3.28|~5.4.0",
+                "illuminate/events": "~5.3.28|~5.4.0",
+                "illuminate/filesystem": "~5.3.28|~5.4.0",
+                "illuminate/notifications": "~5.3.28|~5.4.0",
+                "illuminate/support": "~5.3.28|~5.4.0",
+                "league/flysystem": "^1.0.27",
+                "php": "^7.0",
+                "spatie/db-dumper": "^2.1",
+                "spatie/temporary-directory": "^1.0",
+                "symfony/finder": "^3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.5",
+                "orchestra/testbench": "~3.3.3|~3.4.0",
+                "phpunit/phpunit": "^5.3.0"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "Allows notifications to be sent via Slack"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Backup\\": "src"
+                },
+                "files": [
+                    "src/Helpers/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel 5 package to backup your application",
+            "homepage": "https://github.com/spatie/laravel-backup",
+            "keywords": [
+                "backup",
+                "database",
+                "laravel-backup",
+                "spatie"
+            ],
+            "time": "2017-02-03T13:15:45+00:00"
+        },
+        {
+            "name": "spatie/temporary-directory",
+            "version": "1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/temporary-directory.git",
+                "reference": "58e80a88c3fd463d502807614e88c1aec62e79dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/temporary-directory/zipball/58e80a88c3fd463d502807614e88c1aec62e79dc",
+                "reference": "58e80a88c3fd463d502807614e88c1aec62e79dc",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\TemporaryDirectory\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Vanderbist",
+                    "email": "alex@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The `temporary-directory` package allows you to easily create, use and destroy temporary directories.",
+            "homepage": "https://github.com/spatie/temporary-directory",
+            "keywords": [
+                "spatie",
+                "temporary-directory"
+            ],
+            "time": "2017-02-02T13:08:42+00:00"
         },
         {
             "name": "symfony/yaml",

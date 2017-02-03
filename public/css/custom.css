@@ -1,0 +1,11 @@
+main {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+
+footer.page-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
