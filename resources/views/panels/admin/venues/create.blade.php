@@ -3,8 +3,12 @@
 @section('content')
 
     <div class="card">
-        <h4 class="card-header bg-primary white-text">Add a Venue</h4>
         <div class="card-block">
+
+            <div class="text-center">
+                <h3><i class="fa fa-map-marker"></i> Add a Venue</h3>
+                <hr class="mt-2 mb-2">
+            </div>
 
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
@@ -17,7 +21,7 @@
                 </div>
             @endif
 
-            {!! Form::open(['route' => ['venues.store'], 'class' => 'form-inline']) !!}
+            {!! Form::open(['route' => ['venues.store'], 'class' => 'form-horizontal']) !!}
                 @include('panels.admin.venues.form')
             {!! Form::close() !!}
 
