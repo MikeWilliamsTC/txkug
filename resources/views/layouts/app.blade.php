@@ -10,8 +10,7 @@
         <link href="/css/bootstrap.min.css" rel="stylesheet">
         <link href="/css/mdb.min.css" rel="stylesheet">
         <link href="/css/custom.css" rel="stylesheet">
-
-        @yield('head_includes')
+        @yield('header_scripts')
         <script>
             window.Laravel = {!! json_encode([
                     'csrfToken' => csrf_token(),
@@ -34,7 +33,7 @@
         <script type="text/javascript" src="/js/tether.min.js"></script>
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/js/mdb.min.js"></script>
-        @yield('foot_includes')
+        @yield('footer_scripts')
         <script>
             new WOW().init();
         </script>

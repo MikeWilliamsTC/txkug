@@ -7,30 +7,25 @@ use App\Models\User;
 class UserSeeder extends Seeder{
 
     public function run(){
+
         DB::table('users')->delete();
 
+//        //  Create Admin User
         $adminRole = Role::whereName('administrator')->first();
-//        $userRole = Role::whereName('user')->first();
-
-        $user = User::create(array(
+        $adminUser = User::create(array(
             'first_name'    => 'TXKuG',
             'last_name'     => 'Admin',
             'email'         => 'contact@txkug.com',
-            'password'      => Hash::make('password'),
+            'password'      => bcrypt('secretPassw0rd'),
             'token'         => str_random(64),
             'activated'     => true
         ));
+        $adminUser->assignRole($adminRole);
 
-        $user->assignRole($adminRole);
-
-//        $user = User::create(array(
-//            'first_name'    => 'Jane',
-//            'last_name'     => 'Doe',
-//            'email'         => 'jane.doe@codingo.me',
-//            'password'      => Hash::make('janesPassword'),
-//            'token'         => str_random(64),
-//            'activated'     => true
-//        ));
-//        $user->assignRole($userRole);
+        //  Create Regular Users
+        factory(App\Models\User::class, 10)->create()->each(function($role) {
+            $userRole = Role::whereName('user')->first();
+            $role->assignRole($userRole);
+        });
     }
 }

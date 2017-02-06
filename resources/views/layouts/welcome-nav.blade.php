@@ -23,7 +23,7 @@
             <ul class="navbar-nav">
                 @if (Auth::guest())
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ env('SLACK_REDIRECT') }}">Slack Login</a>
+                        <a class="nav-link" href="{{ route('social.redirect', ['provider' => 'slack']) }}">Slack Login</a>
                     </li>
                 @else
                     @if(Auth::user()->hasRole('administrator'))

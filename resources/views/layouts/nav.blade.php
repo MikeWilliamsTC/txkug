@@ -18,7 +18,7 @@
             <ul class="navbar-nav">
                 @if (Auth::guest())
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ env('SLACK_REDIRECT') }}">Slack Login</a>
+                        <a class="nav-link" href="{{ route('social.redirect', ['provider' => 'slack']) }}">Slack Login</a>
                     </li>
                 @else
                     @if(Auth::user()->hasRole('administrator'))
@@ -38,8 +38,8 @@
                     <li class="nav-item btn-group">
                         <a class="nav-link dropdown-toggle" id="userDropMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
                         <div class="dropdown-menu" aria-labelledby="userDropMenu">
-                            <a class="dropdown-item" href="{{ url('/user/meetings') }}">My Events</a>
-                            <a class="dropdown-item" href="{{ url('/logout') }}">Logout</a>
+                            <a class="dropdown-item" href="{{ route('user.events') }}">My Events</a>
+                            <a class="dropdown-item" href="{{ url('logout') }}">Logout</a>
                         </div>
                     </li>
 
