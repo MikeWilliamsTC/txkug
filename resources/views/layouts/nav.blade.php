@@ -1,4 +1,4 @@
-<nav class="navbar navbar-toggleable-md navbar-dark elegant-color-dark">
+<nav class="navbar navbar-toggleable-md navbar-dark stylish-color-dark">
     <div class="container">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,7 +23,7 @@
                 @else
                     @if(Auth::user()->hasRole('administrator'))
 
-                        <li class="nav-item btn-group">
+                        <li class="nav-item dropdown btn-group">
                             <a class="nav-link dropdown-toggle" id="adminDropMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
                             <div class="dropdown-menu" aria-labelledby="adminDropMenu">
                                 <a class="dropdown-item" href="/admin">Dashboard</a>
@@ -35,7 +35,7 @@
 
                     @endif
 
-                    <li class="nav-item btn-group">
+                    <li class="nav-item dropdown btn-group">
                         <a class="nav-link dropdown-toggle" id="userDropMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
                         <div class="dropdown-menu" aria-labelledby="userDropMenu">
                             <a class="dropdown-item" href="{{ route('user.events') }}">My Events</a>

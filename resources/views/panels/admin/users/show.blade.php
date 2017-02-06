@@ -4,7 +4,7 @@
 
     <h3 class="mt-3">Attendance Record for {{ $user->first_name }} {{ $user->last_name }}</h3>
 
-    <div class="mb-2">Attendance Total: {{ $user->participations->count() }} </div>
+    <div class="mb-2">Total Events Attended: {{ $user->participations->count() }} </div>
 
     @if($user->participations->count() > 0 )
         <div class="table-responsive">

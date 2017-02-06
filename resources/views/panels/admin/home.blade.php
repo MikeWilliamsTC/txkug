@@ -2,30 +2,29 @@
 
 @section('content')
 
-    <div class="card">
-        <h4 class="card-header bg-primary white-text">Dashboard</h4>
-        <div class="card-block">
-            <div class="row mt-2">
+    <h4>Admin Dashboard</h4>
+
+    <div class="row" style="height: 100%">
+        <div class="col-lg-12">
+            <div class="row">
                 <div class="col-md-6">
                     <h4 class="mt-4  text-md-center">Total Events</h4>
                     <h1 class="text-md-center font-weight-bold">{{ $total_events }}</h1>
-                        <hr class="mt-2 mb-2"/>
+                    <hr class="mt-2 mb-2"/>
                     <h4 class="text-md-center">Average Participants</h4>
                     <h1 class="text-md-center font-weight-bold">{{ round($avg_attendance) }}</h1>
                 </div>
-                <div class="col-md-6 mb-2">
+                <div class="col-md-6">
                     <canvas id="attendanceChart" height="250" class="p-1"></canvas>
                 </div>
             </div>
-
             <hr />
-            
-            <div class="row mt-2">
-                <div class="col-md-6 mb-2">
-                    <canvas id="attendanceDetailChart" height="250" class="p-1"></canvas>
+            <div class="row">
+                <div class="col-md-6">
+                    <canvas id="attendanceDetailChart" height="250"></canvas>
                 </div>
-                <div class="col-md-6 mb-2">
-                    <canvas id="venueChart" height="250" class="p-1"></canvas>
+                <div class="col-md-6">
+                    <canvas id="venueChart" height="250"></canvas>
                 </div>
             </div>
         </div>

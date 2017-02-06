@@ -19,7 +19,7 @@
                             <th>Date</th>
                             <th>Event Type</th>
                             <th>Venue</th>
-                            <th>Attendance</th>
+                            <th>Participants</th>
                             <th style="text-align:center;">Actions</th>
                         </tr>
                     </thead>

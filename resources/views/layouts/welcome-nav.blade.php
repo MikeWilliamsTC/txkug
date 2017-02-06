@@ -13,7 +13,6 @@
                 <li class="nav-item {{ set_active('/') }}">
                     <a class="nav-link" href="{{ route('welcome.index') }}">Home</a>
                 </li>
-
                 <li class="nav-item {{ set_active('blog') }}">
                     <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
                 </li>
