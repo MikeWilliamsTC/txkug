@@ -27,7 +27,7 @@
                 @else
                     @if(Auth::user()->hasRole('administrator'))
 
-                    <li class="nav-item btn-group">
+                    <li class="nav-item dropdown btn-group">
                         <a class="nav-link dropdown-toggle" id="adminDropMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
                         <div class="dropdown-menu" aria-labelledby="adminDropMenu">
                             <a class="dropdown-item" href="/admin">Dashboard</a>
@@ -39,7 +39,7 @@
 
                     @endif
 
-                    <li class="nav-item btn-group">
+                    <li class="nav-item dropdown btn-group">
                         <a class="nav-link dropdown-toggle" id="userDropMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
                         <div class="dropdown-menu" aria-labelledby="userDropMenu">
                             <a class="dropdown-item" href="{{ url('/user/meetings') }}">My Events</a>

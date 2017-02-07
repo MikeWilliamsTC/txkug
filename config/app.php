@@ -174,6 +174,7 @@ return [
         \SocialiteProviders\Manager\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Illuminate\Notifications\NotificationServiceProvider::class,
+        Lisennk\Laravel\SlackWebApi\Providers\SlackApiServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -237,6 +238,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class,
+        'SlackApi' => \Lisennk\Laravel\SlackWebApi\Facades\SlackApi::class,
     ],
 
 ];

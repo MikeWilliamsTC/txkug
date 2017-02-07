@@ -4,8 +4,8 @@
 
     <h4>Admin Dashboard</h4>
 
-    <div class="row" style="height: 100%">
-        <div class="col-lg-12">
+    {{--<div class="row" style="height: 100%">--}}
+        {{--<div class="col-lg-12">--}}
             <div class="row">
                 <div class="col-md-6">
                     <h4 class="mt-4  text-md-center">Total Events</h4>
@@ -18,7 +18,7 @@
                     <canvas id="attendanceChart" height="250" class="p-1"></canvas>
                 </div>
             </div>
-            <hr />
+            {{--<hr />--}}
             <div class="row">
                 <div class="col-md-6">
                     <canvas id="attendanceDetailChart" height="250"></canvas>
@@ -27,8 +27,8 @@
                     <canvas id="venueChart" height="250"></canvas>
                 </div>
             </div>
-        </div>
-    </div>
+        {{--</div>--}}
+    {{--</div>--}}
 
 @stop
 
