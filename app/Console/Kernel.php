@@ -5,6 +5,7 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use SlackAPI;
+use App\Models\Social;
 
 class Kernel extends ConsoleKernel
 {
