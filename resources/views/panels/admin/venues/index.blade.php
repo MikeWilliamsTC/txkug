@@ -34,18 +34,6 @@
     </div>
     {{ $venues->links('vendor.pagination.bootstrap-4') }}
 
-
-
-    {{--<div class="card">--}}
-        {{--<h4 class="card-header bg-primary white-text">Venues</h4>--}}
-        {{--<div class="card-block">--}}
-            {{--<span class="pull-right mb-1">--}}
-                {{--<a href="/admin/venues/create" class="btn btn-md bg-primary">Add Venue</a>--}}
-            {{--</span>--}}
-
-        {{--</div>--}}
-    {{--</div>--}}
-
     @foreach ($venues as $venue)
         <div class="modal fade deleteVenueModal-{{ $venue->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteVenueModal-{{ $venue->id }}" aria-hidden="true">
             <div class="modal-dialog">

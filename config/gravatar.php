@@ -13,7 +13,7 @@ return array(
 		'fallback' => 'mm',
 
 		// would you like to return a https://... image
-		'secure' => false,
+		'secure' => true,
 
 		// Gravatar allows users to self-rate their images so that they can indicate if an image
 		// is appropriate for a certain audience. By default, only 'G' rated images are displayed
@@ -30,5 +30,9 @@ return array(
 
 		// If you require a file-type extension (some places do) then you may also add an (optional) .jpg extension to that URL
 		'forceExtension' => 'jpg',
-	)
+	),
+    'small-secure' => array (
+        'size'   => 30,
+        'secure' => true,
+    )
 );
