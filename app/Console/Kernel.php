@@ -46,7 +46,7 @@ class Kernel extends ConsoleKernel
                     'avatar_192' => $response['user']['profile']['image_192'],
                 ]);
             });
-        })->everyMinute();
+        })->twiceDaily(7, 13);
     }
 
     /**
