@@ -28,24 +28,24 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
 
-//        $schedule->call(function () {
-//            $socials = Social::get();
-//            $socials->map(function ($social) {
-//                $response = SlackApi::execute('users.info', ['user' => $social->social_id]);
-//
-//                if( ! empty($response['user']['profile']['title'])){
-//                    $title = $response['user']['profile']['title'];
-//                } else {
-//                    $title = NULL;
-//                }
-//
-//                $social->update([
-//                    'title' => $title,
-//                    'avatar_32' => $response['user']['profile']['image_32'],
-//                    'avatar_192' => $response['user']['profile']['image_192'],
-//                ]);
-//            });
-//        })->daily();
+        $schedule->call(function () {
+            $socials = Social::get();
+            $socials->map(function ($social) {
+                $response = SlackApi::execute('users.info', ['user' => $social->social_id]);
+
+                if( ! empty($response['user']['profile']['title'])){
+                    $title = $response['user']['profile']['title'];
+                } else {
+                    $title = NULL;
+                }
+
+                $social->update([
+                    'title' => $title,
+                    'avatar_32' => $response['user']['profile']['image_32'],
+                    'avatar_192' => $response['user']['profile']['image_192'],
+                ]);
+            });
+        })->everyFiveMinutes();
     }
 
     /**
