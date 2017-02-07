@@ -96,6 +96,14 @@ class SocialController extends Controller
 
                 // Slack Data: Avatars, Title
                 $slackData = SlackApi::execute('users.info', ['user' => $socialData->social_id]);
+
+                if( ! empty($slackData['user']['profile']['title'])){
+                    $title = $slackData['user']['profile']['title'];
+                } else {
+                    $title = NULL;
+                }
+
+                $socialData->title = $title;
                 $socialData->avatar_32 = $slackData['user']['profile']['image_32'];
                 $socialData->avatar_192 = $slackData['user']['profile']['image_192'];
 
