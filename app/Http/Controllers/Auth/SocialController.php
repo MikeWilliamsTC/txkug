@@ -10,6 +10,7 @@ use App\Traits\ActivationTrait;
 use App\Models\Social;
 use App\Models\User;
 use App\Models\Role;
+use SlackApi;
 
 class SocialController extends Controller
 {
@@ -57,9 +58,7 @@ class SocialController extends Controller
         }
 
         if (!empty($userCheck)) {
-
             $socialUser = $userCheck;
-
         }
         else {
 
@@ -88,8 +87,26 @@ class SocialController extends Controller
                 $newSocialUser->save();
 
                 $socialData = new Social;
+
+                // Slack
                 $socialData->social_id = $user->id;
-                $socialData->provider= $provider;
+
+                // Slack Provider
+                $socialData->provider = $provider;
+
+                // Slack Data: Avatars, Title
+                $slackData = SlackApi::execute('users.info', ['user' => $socialData->social_id]);
+
+                if( ! empty($slackData['user']['profile']['title'])){
+                    $title = $slackData['user']['profile']['title'];
+                } else {
+                    $title = NULL;
+                }
+
+                $socialData->title = $title;
+                $socialData->avatar_32 = $slackData['user']['profile']['image_32'];
+                $socialData->avatar_192 = $slackData['user']['profile']['image_192'];
+
                 $newSocialUser->social()->save($socialData);
 
                 // Add role

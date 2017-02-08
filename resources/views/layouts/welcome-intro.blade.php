@@ -2,7 +2,7 @@
     <div class="full-bg-img flex-center">
         <div class="container">
             <div class="row" id="home">
-                <div class="col-lg-8 offset-2">
+                <div class="col-lg-8 offset-lg-2">
                     <div class="description flex-center">
                         <ul>
                             <li>
@@ -15,11 +15,26 @@
                             <li>
                                 <hr class="hr-dark">
                             </li>
+                            @if (Auth::guest())
                             <li>
                                 <button type="button" class="btn btn-danger wow fadeInUp" data-wow-delay="0.2s" data-toggle="modal" data-target="#joinSlackTeamModal">
                                     Join Our Slack Team
                                 </button>
+                                <a href="{{ route('social.redirect', ['provider' => 'slack']) }}">
+                                    <button type="button" class="btn btn-primary wow fadeInUp" data-wow-delay="0.2s">
+                                        Login Using Slack
+                                    </button>
+                                </a>
                             </li>
+                            @else
+                            <li>
+                                <a href="{{ url('logout') }}">
+                                    <button type="button" class="btn btn-danger wow fadeInUp" data-wow-delay="0.2s">
+                                        Logout
+                                    </button>
+                                </a>
+                            </li>
+                            @endif
                         </ul>
                     </div>
                 </div>

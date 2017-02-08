@@ -2,9 +2,10 @@
 
 @section('content')
 
-    <div class="card">
-        <h4 class="card-header bg-primary white-text">Edit {{ $event->event_name }}</h4>
-        <div class="card-block">
+    <h3>Edit Event: {{ $event->event_name }}</h3>
+    {{--<div class="card">--}}
+        {{--<h4 class="card-header bg-primary white-text">Edit {{ $event->event_name }}</h4>--}}
+        {{--<div class="card-block">--}}
 
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
@@ -21,8 +22,8 @@
                 @include('panels.admin.events.form')
             {!! Form::close() !!}
 
-        </div>
-    </div>
+        {{--</div>--}}
+    {{--</div>--}}
 @stop
 
 @section('footer')

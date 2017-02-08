@@ -40,9 +40,9 @@ class DashboardController extends Controller {
             ->orderBy('users.last_name')
             ->get();
 
-//        $total_events = Event::where('starts_at', '<=', Carbon::now()->toDateTimeString())->count();
-//        $total_participants = Participant::count();
-//        $avg_attendance = ($total_participants / $total_events);
+        $total_events = Event::where('starts_at', '<=', Carbon::now()->toDateTimeString())->count();
+        $total_participants = Participant::count();
+        $avg_attendance = ($total_participants / $total_events);
 //
         return view('panels.admin.home', compact('attendance_chart', 'attendance_detail_chart', 'venue_chart', 'total_events', 'avg_attendance'));
     }

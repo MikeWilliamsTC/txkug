@@ -7,8 +7,11 @@ use App\Models\Event;
 use App\Models\User;
 use Carbon\Carbon;
 
+
 class UserController extends Controller
 {
+
+
     public function index() {
 
         $event = Event::with('venue')

@@ -20,7 +20,7 @@
                     </p>
 
                     @if($venue->venue_note)
-                        <p><span class="font-weight-bold">Note:</span> <br />{{ $venue->venue_note }}</p>
+                        <p><span class="font-weight-bold">Note:</span> <br />{!! $venue->venue_note !!}</p>
                     @endif
 
                 </div>
@@ -39,7 +39,7 @@
 
                     <div class="table-responsive">
                         <table class="table table-hover table-striped table-bordered">
-                            <thead class="thead blue-grey darken-1 text-white">
+                            <thead class="thead stylish-color-dark text-white">
                             <tr>
                                 <th>Event</th>
                                 <th>Date & Time</th>
@@ -68,7 +68,7 @@
 
 @stop
 
-@section('footer')
+@section('footer_scripts')
 
     <script>
 
