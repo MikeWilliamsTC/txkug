@@ -10,7 +10,7 @@
         <link href="/css/bootstrap.min.css" rel="stylesheet">
         <link href="/css/mdb.min.css" rel="stylesheet">
         <link href="/css/welcome.css" rel="stylesheet">
-        @yield('head_includes')
+        @yield('header_scripts')
         <script>
             window.Laravel = {!! json_encode([
                     'csrfToken' => csrf_token(),
@@ -22,6 +22,7 @@
             @include('layouts.welcome-nav')
             @include('layouts.welcome-intro')
         </header>
+
         <main>
             <div class="container">
                 <div id="app">
@@ -29,14 +30,19 @@
                 </div>
             </div>
         </main>
+
         @include('layouts.footer')
+
         <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="/js/tether.min.js"></script>
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/js/mdb.min.js"></script>
-        @yield('foot_includes')
+
+        @yield('footer_scripts')
+
         <script>
             new WOW().init();
         </script>
+
     </body>
 </html>

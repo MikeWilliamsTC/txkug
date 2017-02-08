@@ -4,7 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use SlackAPI;
+use SlackApi;
 use App\Models\Social;
 
 class Kernel extends ConsoleKernel
@@ -46,7 +46,7 @@ class Kernel extends ConsoleKernel
                     'avatar_192' => $response['user']['profile']['image_192'],
                 ]);
             });
-        })->everyFiveMinutes();
+        })->twiceDaily(7, 13);
     }
 
     /**
