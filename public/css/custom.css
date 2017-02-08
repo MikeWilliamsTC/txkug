@@ -1,28 +1,12 @@
-/*
-|-------------------------------------------------------------
-| Fills up all vertical space in the <body> element, even if there
-|  isn't enough content inside of element to stretch it
-*/
-
+html {
+    height: 100%;
+}
 body {
-    position: relative;
-    min-height: 100vh;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
-
-/*
-|---------------------------------------------------
-| Forces <footer> to the bottom  of <body> and makes
-| sure that the element fills up the page's width
-*/
-
-footer {
-    position: relative;
-    bottom: 0px;
-    width: 100vw;
-    clear:both;
-}
-
 main {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    margin-top: 3em;
+    flex: 1;
 }
