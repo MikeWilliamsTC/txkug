@@ -8,8 +8,19 @@
     /*min-height: 100vh; !* all view-port height *!*/
 /*}*/
 
+body {
+    position: relative;
+    min-height: 100vh;
+}
+footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100vw;
+}
+
 main {
     margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 /*
