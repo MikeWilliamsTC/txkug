@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('header_scripts')
-    <link href="{{ asset('/css/user.css') }}" rel="stylesheet">
-@stop
-
 @section('content')
 
     <div class="row mb-3">

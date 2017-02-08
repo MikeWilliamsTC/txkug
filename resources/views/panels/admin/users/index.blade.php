@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
+
 @section('content')
 
-    <h3 class="mt-3 mb-2"><i class="fa fa-group"></i> Users </h3>
+    <h3><i class="fa fa-group"></i> Users </h3>
 
     <div class="table-responsive">
         <table class="table table-hover table-striped table-hover table-bordered">

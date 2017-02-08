@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h4>Admin Dashboard</h4>
+    <h3><i class="fa fa-dashboard"></i> Dashboard</h3>
 
     <div class="row">
         <div class="col-lg-12">

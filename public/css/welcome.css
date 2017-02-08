@@ -21,10 +21,6 @@ header,
     background-color: #3E4551;
 }
 
-footer.page-footer {
-    background-color: #1C2331;
-    margin-top: 2rem;
-}
 
 @media only screen and (max-width: 768px) {
     .navbar {
