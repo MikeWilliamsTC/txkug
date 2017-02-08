@@ -7,8 +7,6 @@ use Request;
 use Input;
 use Session;
 use DB;
-use App\Models\User;
-use App\Models\Participant;
 
 
 class UserController extends Controller
