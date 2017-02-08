@@ -2,7 +2,7 @@
     <div class="full-bg-img flex-center">
         <div class="container">
             <div class="row" id="home">
-                <div class="col-lg-8 offset-2">
+                <div class="col-lg-8 offset-lg-2">
                     <div class="description flex-center">
                         <ul>
                             <li>

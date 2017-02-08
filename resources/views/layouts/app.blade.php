@@ -22,7 +22,7 @@
             @include('layouts.nav')
         </header>
 
-        <main style="height: 100%;">
+        <main>
             <div class="container">
                 <div id="app">
                     @yield('content')
@@ -36,7 +36,9 @@
         <script type="text/javascript" src="/js/tether.min.js"></script>
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/js/mdb.min.js"></script>
+
         @yield('footer_scripts')
+
         <script>
             new WOW().init();
         </script>

@@ -1,31 +1,34 @@
+/*html,*/
+/*body,*/
+/*header,*/
+/*.view {*/
+    /*height: 90%;*/
+/*}*/
+
 main {
     margin-top: 3rem;
 }
 
-.lead {
-    text-align: justify;
-}
+/*@media only screen and (max-width: 768px) {*/
+    /*.post-title {*/
+        /*margin-top: 1rem;*/
+    /*}*/
+/*}*/
 
-@media only screen and (max-width: 768px) {
-    .post-title {
-        margin-top: 1rem;
-    }
-}
+/*@media only screen and (max-width: 768px) {*/
+    /*.read-more {*/
+        /*text-align: center;*/
+    /*}*/
+/*}*/
 
-@media only screen and (max-width: 768px) {
-    .read-more {
-        text-align: center;
-    }
-}
-
-.extra-margin {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
+/*.extra-margin {*/
+    /*margin-top: 2rem;*/
+    /*margin-bottom: 2rem;*/
+/*}*/
 
 
-footer.page-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
+/*footer.page-footer {*/
+    /*position: absolute;*/
+    /*bottom: 0;*/
+    /*width: 100%;*/
+/*}*/
