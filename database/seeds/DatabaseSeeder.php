@@ -11,5 +11,6 @@ class DatabaseSeeder extends Seeder
         $this->call(VenueSeeder::class);
         $this->call(EventSeeder::class);
         $this->call(ParticipantSeeder::class);
+        $this->call(SocialLoginsSeeder::class);
     }
 }

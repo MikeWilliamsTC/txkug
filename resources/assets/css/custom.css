@@ -1,13 +1,27 @@
-/*html,*/
-/*body,*/
-/*header,*/
-/*.view {*/
-    /*height: 90%;*/
+/*
+|-------------------------------------------------------------
+| Fills up all vertical space in the <body> element, even if there
+|  isn't enough content inside of element to stretch it
+*/
+/*body {*/
+    /*position: relative;*/
+    /*min-height: 100vh; !* all view-port height *!*/
 /*}*/
 
 main {
     margin-top: 3rem;
 }
+
+/*
+|---------------------------------------------------
+| Forces <footer> to the bottom  of <body> and makes
+| sure that the element fills up the page's width
+*/
+/*footer {*/
+    /*position: absolute;*/
+    /*bottom: 0;*/
+    /*width: 100vw; !* all view-port width *!*/
+/*}*/
 
 /*@media only screen and (max-width: 768px) {*/
     /*.post-title {*/
@@ -19,17 +33,4 @@ main {
     /*.read-more {*/
         /*text-align: center;*/
     /*}*/
-/*}*/
-
-/*.extra-margin {*/
-    /*margin-top: 2rem;*/
-    /*margin-bottom: 2rem;*/
-/*}*/
-
-
-/*footer.page-footer {*/
-    /*margin-top: 3em;*/
-    /*position: absolute;*/
-    /*bottom: 0;*/
-    /*width: 100%;*/
 /*}*/

@@ -7,8 +7,6 @@ use Request;
 use Input;
 use Session;
 use DB;
-use App\Models\User;
-use App\Models\Participant;
 
 
 class UserController extends Controller
@@ -17,8 +15,6 @@ class UserController extends Controller
 
         if(Request::ajax()) {
             $data = Request::all();
-
-//            dd($data['user_id']);
 
             DB::table('role_user')
                 ->where('user_id', '=', $data['user_id'])

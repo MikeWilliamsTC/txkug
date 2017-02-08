@@ -49,9 +49,9 @@
 
 @stop
 
-@section('footer')
+@section('footer_scripts')
     <script>
-        function setRole (id) {
+        function setRole(id) {
 
             $.ajaxSetup({
                 headers: {
