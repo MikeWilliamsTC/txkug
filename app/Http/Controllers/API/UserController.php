@@ -18,8 +18,6 @@ class UserController extends Controller
         if(Request::ajax()) {
             $data = Request::all();
 
-//            dd($data['user_id']);
-
             DB::table('role_user')
                 ->where('user_id', '=', $data['user_id'])
                 ->update(array('role_id' => $data['role_id']));
