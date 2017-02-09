@@ -2,7 +2,9 @@
 
 @section('content')
 
-    <h3 class="mb-4">Edit Venue {{ $venue->venue_name }}</h3>
+    <h3>Edit Event Venue</h3>
+
+    <hr class="mt-1 mb-2">
 
     @include('errors.error')
 

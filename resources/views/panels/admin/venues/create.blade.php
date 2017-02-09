@@ -2,30 +2,14 @@
 
 @section('content')
 
-    <div class="card">
-        <div class="card-block">
+    <h3>Add Event Venue</h3>
 
-            <div class="text-center">
-                <h3><i class="fa fa-map-marker"></i> Add a Venue</h3>
-                <hr class="mt-2 mb-2">
-            </div>
+    <hr class="mt-1 mb-2">
 
-            @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input:<br><br>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+    @include('errors.error')
 
-            {!! Form::open(['route' => ['venues.store'], 'class' => 'form-horizontal']) !!}
-                @include('panels.admin.venues.form')
-            {!! Form::close() !!}
-
-        </div>
-    </div>
+    {!! Form::open(['route' => ['venues.store'], 'class' => 'form-horizontal']) !!}
+        @include('panels.admin.venues.form')
+    {!! Form::close() !!}
 
 @stop

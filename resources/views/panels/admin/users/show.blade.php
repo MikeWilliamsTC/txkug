@@ -23,14 +23,18 @@
                 <span class="badge blue">MacOS</span>
                 <span class="badge blue">Webdev</span>
             </p>
-            <p>{{ $user->first_name }} has attended  {{ $user->participations->count() }} {{ str_plural('event', $user->participations->count()) }}</p>
+
         </div>
     </div>
 
+    <hr />
+
+    <p>{{ $user->first_name }} has attended  {{ $user->participations->count() }} {{ str_plural('event', $user->participations->count()) }}</p>
+
     @if($user->participations->count() > 0 )
         <div class="table-responsive">
-            <table class="table table-hover table-striped table-bordered">
-                <thead class="thead-inverse">
+            <table class="table table-hover table-striped table-hover">
+                <thead class="thead stylish-color text-white">
                 <tr>
                     <th>Event</th>
                     <th>Venue</th>

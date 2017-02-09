@@ -12,3 +12,11 @@ main {
     margin-top: 3em;
     flex: 1;
 }
+
+[v-cloak] {
+    display: none;
+}
+
+.switch label input[type = checkbox]:checked + .lever:after {
+    background-color: #FB102B;
+}
