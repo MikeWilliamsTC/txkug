@@ -14,19 +14,22 @@
 Route::name('welcome.index')->get('/', 'WelcomeController@index');
 Route::name('blog.index')->get('/blog', 'BlogController@index');
 
+Route::name('events.index')->get('/events', 'EventsController@index');
+Route::name('events.show')->get('/events/{slug}', 'EventsController@show');
+
 Route::get('/social/redirect/{provider}', ['as' => 'social.redirect',   'uses' => 'Auth\SocialController@getSocialRedirect']);
 Route::get('/social/handle/{provider}', ['as' => 'social.handle',     'uses' => 'Auth\SocialController@getSocialHandle']);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:administrator'], function() {
     Route::get('/', ['as' => 'admin.home', 'uses' => 'Admin\DashboardController@index']);
-    Route::resource('/venues', 'Admin\VenueController');
+    Route::resource('/venues', 'Admin\VenuesController');
     Route::resource('/events', 'Admin\EventsController');
     Route::resource('/users', 'Admin\UsersController');
 });
 
 Route::group(['prefix' => 'user', 'middleware' => 'auth:all'], function() {
-    Route::get('/', ['as' => 'user.home', 'uses' => 'UserController@index']);
-    Route::get('/meetings', ['as' => 'user.events', 'uses' => 'UserController@events']);
+    Route::name('user.home')->get('/', 'User\UsersController@home');
+    Route::name('user.events')->get('/events', 'User\UsersController@events');
 });
 
 Route::group(['middleware' => 'auth:all'], function() {
@@ -42,4 +45,15 @@ Route::group(['prefix' => 'api', 'middleware' => 'auth:all'], function () {
     Route::post('/event', 'API\EventController@eventCheckIn');
     Route::get('/event/{id}', 'API\EventController@getParticipants');
     Route::post('/user', 'API\UserController@setRole');
+});
+
+
+// Temporary SparkPost mail test route
+Route::get('/sparkpost', function () {
+    Mail::send('mail.test', [], function ($message) {
+        $message
+            ->from('contact@txkug.com', 'TXKUG Admin')
+            ->to('stephen.dumas@smith-blair.com', 'Stephen Dumas')
+            ->subject('From TXKUG with ❤');
+  });
 });

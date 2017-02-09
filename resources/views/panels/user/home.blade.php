@@ -12,17 +12,10 @@
                         <h4 class="card-title"><strong>Texarkana Area IT Users Group</strong></h4>
                         <hr />
                         <p class="card-text">There are no meetings or events currently scheduled.</p>
-                        <hr />
-                        <a type="button" class="btn-floating btn-small btn-email wow fadeInLeft" target="_blank" href="https://www.txkug.com/"><i class="fa fa-link"></i></a>
-                        <a type="button" class="btn-floating btn-small btn-dribbble wow fadeInLeft" target="_blank" href="https://txkug.slack.com"><i class="fa fa-slack"></i></a>
-                        <a type="button" class="btn-floating btn-small btn-fb wow fadeInRight" target="_blank" href="https://www.facebook.com/txkug/?fref=ts"><i class="fa fa-facebook"></i></a>
-                        <a type="button" class="btn-floating btn-small btn-tw wow fadeInRight" target="_blank" href="https://twitter.com/Txkug"><i class="fa fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-
-
 
     @else
         @include('partials.event-card')

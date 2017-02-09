@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Traits\ActivationTrait;
 use App\Models\Activation;
 
-class ActivateController extends Controller
+class XXXActivateController extends Controller
 {
 
     use ActivationTrait;

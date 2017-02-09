@@ -3,11 +3,11 @@
 
 @section('content')
 
-    <h3><i class="fa fa-group"></i> Users </h3>
+    <h3> Users </h3>
 
     <div class="table-responsive">
-        <table class="table table-hover table-striped table-hover table-bordered">
-            <thead class="thead primary-color text-white">
+        <table class="table table-hover table-striped table-hover">
+            <thead class="thead stylish-color text-white">
             <tr>
                 <th>Name</th>
                 <th>Email</th>
@@ -29,7 +29,7 @@
                                 User
                                 @if ( $user->roles[0]->id == 2 )
                                     <input id="role-type" onclick='setRole( {{ $user->id }} );' checked type="checkbox">
-                                    <span class="lever green lighten-4"></span>
+                                    <span class="lever grey lighten-1"></span>
                                 @else
                                     <input id="role-type" onclick='setRole( {{ $user->id }} );' type="checkbox">
                                     <span class="lever grey lighten-3"></span>
@@ -74,10 +74,10 @@
                 method: 'POST',
                 url: '/api/user',
                 data: {'user_id': id, 'role_id': role_id },
-//                success: function(data){
-//                    document.getElementById("check-in-msg").innerHTML = "<strong class='green-text'>You Are Checked In!</strong>";
-//
-//                },
+                success: function(data){
+                    console.log('User id: ' + id + ', Role id: ' + role_id);
+
+                },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.log(JSON.stringify(jqXHR));
                     console.log("AJAX error: " + textStatus + ' : ' + errorThrown);

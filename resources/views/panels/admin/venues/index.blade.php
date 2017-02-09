@@ -2,30 +2,29 @@
 
 @section('content')
 
-    <h3><i class="fa fa-map-marker"></i> Venues
-        <span class="pull-right waves-effect"><a href="/admin/venues/create" class="btn btn-md bg-primary">Add Venue</a></span>
+    <h3>Event Venues
+        <span class="pull-right waves-effect mb-1"><a href="/admin/venues/create" class="btn btn-md bg-primary">Add Venue</a></span>
     </h3>
 
     <div class="table-responsive">
-        <table class="table table-hover table-striped table-bordered">
-            <thead class="thead blue-grey darken-1 text-white">
+        <table class="table table-hover table-striped table-hover">
+            <thead class="thead stylish-color text-white">
             <tr>
                 <th>Venue Name</th>
                 <th>Address</th>
-                <th style="text-align:center;"># Events</th>
+                <th style="text-align:center;">Events</th>
                 <th style="text-align:center;">Actions</th>
             </tr>
             </thead>
             <tbody>
             @foreach ($venues as $venue)
                 <tr>
-                    <th scope="row">{{ $venue->venue_name }}</th>
+                    <td><a href="/admin/venues/{{ $venue->slug }}">{{ $venue->venue_name }}</a></td>
                     <td>{{ $venue->street_address }} {{ $venue->city }} {{ $venue->state }} {{ $venue->zip_code }}</td>
                     <td style="text-align:center;">{{ $venue->events->count() }}</td>
                     <td style="text-align:center;">
                         <a href="/admin/venues/{{ $venue->slug }}/edit" class="green-text"><i class="fa fa-pencil"></i></a>
                         <a href="#" class="red-text" data-toggle="modal" data-target=".deleteVenueModal-{{ $venue->id }}"><i class="fa fa-trash"></i></a>
-                        <a href="/admin/venues/{{ $venue->slug }}" class="green-text"><i class="fa fa-arrow-right"></i></a>
                     </td>
                 </tr>
             @endforeach
@@ -42,15 +41,15 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title" id="myModalLabel">Delete Venue?</h4>
+                        <h4 class="modal-title" id="myModalLabel">Delete this venue?</h4>
                     </div>
                     {!! Form::model($venue, ['route' => ['venues.destroy', $venue->id], 'method' => 'DELETE']) !!}
                     <div class="modal-body">
                         <div class="alert alert-danger" role="alert">
-                            Deleting a venue will also delete all events, including event participants, associated with that venue.
+                            Deleting a venue will also delete all of its events, including any attendance records associated with the event.
                         </div>
                         <p>
-                            Are you sure you want to delete the venue named <span class="font-weight-bold mt-2">{{ $venue->venue_name }}</span>?
+                            Are you sure you want to delete the event venue <span class="font-weight-bold mt-2">{{ $venue->venue_name }}</span>?
                         </p>
                     </div>
                     <div class="modal-footer">

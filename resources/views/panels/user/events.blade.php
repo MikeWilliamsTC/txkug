@@ -2,10 +2,10 @@
 
 @section('content')
 
-    <h3 class="mt-3">Attendance Record for {{ $user->first_name }} {{ $user->last_name }}</h3>
+    <h3 class="mt-3">Event Record for {{ $user->first_name }} {{ $user->last_name }}</h3>
 
     @if ($user->participations->count() > 0 )
-        <div class="mb-2">
+        <div class="mb-2">s
             You have attended {{ $user->participations->count() }} {{ str_plural('event', $user->participations->count()) }}
         </div>
 
