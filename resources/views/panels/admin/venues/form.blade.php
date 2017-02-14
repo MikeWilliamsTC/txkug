@@ -19,7 +19,6 @@
                 {!! Form::text('lng') !!}
             </div>
         </div>
-
     </div>
 
     <div class="row">

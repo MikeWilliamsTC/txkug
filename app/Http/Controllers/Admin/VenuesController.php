@@ -32,7 +32,7 @@ class VenuesController extends Controller
         ]);
 
         Venue::create($request->all());
-        return redirect()->route('venues.index');
+        return redirect()->route('admin.venues.index');
     }
 
     public function show($slug)
@@ -51,13 +51,13 @@ class VenuesController extends Controller
     {
         $venue = Venue::find($id);
         $venue->update($request->all());
-        return redirect()->route('venues.index');
+        return redirect()->route('admin.venues.index');
     }
 
     public function destroy($id)
     {
         $venue = Venue::find($id);
         $venue->delete();
-        return redirect()->route('venues.index');
+        return redirect()->route('admin.venues.index');
     }
 }

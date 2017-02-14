@@ -2,31 +2,19 @@
 
 @section('content')
 
-    <h3>Edit Event: {{ $event->event_name }}</h3>
-    {{--<div class="card">--}}
-        {{--<h4 class="card-header bg-primary white-text">Edit {{ $event->event_name }}</h4>--}}
-        {{--<div class="card-block">--}}
+    <h3>Edit Event</h3>
 
-            @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input:<br><br>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+    <hr class="mt-1 mb-2">
 
-            {!! Form::model($event, ['route' => ['events.update', $event->id], 'method' => 'PUT', 'files' => true, 'class' => 'form-inline']) !!}
-                @include('panels.admin.events.form')
-            {!! Form::close() !!}
+    @include('errors.error')
 
-        {{--</div>--}}
-    {{--</div>--}}
+    {!! Form::model($event, ['route' => ['admin.events.update', $event->id], 'method' => 'PUT', 'class' => 'form-horizontal']) !!}
+        @include('panels.admin.events.form')
+    {!! Form::close() !!}
+
 @stop
 
-@section('footer')
+@section('footer_scripts')
 
     <script>
         $(document).ready(function() {

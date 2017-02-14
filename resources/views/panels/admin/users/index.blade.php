@@ -20,7 +20,7 @@
                 <tr>
                     <td>
                         <img src="{{ $user->social->avatar_32 }}">
-                        <a href="{{ route('users.show', $user->slug) }}">{{ $user->last_name }}, {{ $user->first_name }}</a>
+                        <a href="{{ route('admin.users.show', $user->slug) }}">{{ $user->last_name }}, {{ $user->first_name }}</a>
                     </td>
                     <td>{{ $user->email }}</td>
                     <td style="text-align:center;">

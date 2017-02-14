@@ -8,7 +8,7 @@
 
     @include('errors.error')
 
-    {!! Form::open(['route' => ['venues.store'], 'class' => 'form-horizontal']) !!}
+    {!! Form::open(['route' => ['admin.venues.store'], 'class' => 'form-horizontal']) !!}
         @include('panels.admin.venues.form')
     {!! Form::close() !!}
 
