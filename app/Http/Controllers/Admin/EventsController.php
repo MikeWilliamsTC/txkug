@@ -40,7 +40,7 @@ class EventsController extends Controller
         $request['event_date'] = $request['event_date'] . ' 00:00:00';
 
         Event::create($request->all());
-        return redirect()->route('events.index');
+        return redirect()->route('admin.events.index');
     }
 
     public function show($slug)
@@ -64,13 +64,13 @@ class EventsController extends Controller
         $request['event_date'] = $request['event_date'] . ' 00:00:00';
 
         $event->update($request->all());
-        return redirect()->route('events.index');
+        return redirect()->route('admin.events.index');
     }
 
     public function destroy($id)
     {
         $event = Event::find($id);
         $event->delete();
-        return redirect()->route('events.index');
+        return redirect()->route('admin.events.index');
     }
 }

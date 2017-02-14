@@ -43,7 +43,7 @@
                         </button>
                         <h4 class="modal-title" id="myModalLabel">Delete this venue?</h4>
                     </div>
-                    {!! Form::model($venue, ['route' => ['venues.destroy', $venue->id], 'method' => 'DELETE']) !!}
+                    {!! Form::model($venue, ['route' => ['admin.venues.destroy', $venue->id], 'method' => 'DELETE']) !!}
                     <div class="modal-body">
                         <div class="alert alert-danger" role="alert">
                             Deleting a venue will also delete all of its events, including any attendance records associated with the event.

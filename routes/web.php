@@ -2,58 +2,74 @@
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Public Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
 
 Route::name('welcome.index')->get('/', 'WelcomeController@index');
 Route::name('blog.index')->get('/blog', 'BlogController@index');
-
 Route::name('events.index')->get('/events', 'EventsController@index');
 Route::name('events.show')->get('/events/{slug}', 'EventsController@show');
 
-Route::get('/social/redirect/{provider}', ['as' => 'social.redirect',   'uses' => 'Auth\SocialController@getSocialRedirect']);
-Route::get('/social/handle/{provider}', ['as' => 'social.handle',     'uses' => 'Auth\SocialController@getSocialHandle']);
+/*
+|--------------------------------------------------------------------------
+| Auth Routes
+|--------------------------------------------------------------------------
+*/
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth:administrator'], function() {
-    Route::get('/', ['as' => 'admin.home', 'uses' => 'Admin\DashboardController@index']);
-    Route::resource('/venues', 'Admin\VenuesController');
-    Route::resource('/events', 'Admin\EventsController');
-    Route::resource('/users', 'Admin\UsersController');
+Route::name('social.redirect')->get('/social/redirect/{provider}', 'Auth\SocialController@getSocialRedirect');
+Route::name('social.handle')->get('/social/handle/{provider}', 'Auth\SocialController@getSocialHandle');
+Route::name('authenticated.logout')->get('/logout', 'Auth\LoginController@logout')->middleware('auth:all');
+Auth::routes(['login' => 'auth.login', 'middleware' => 'auth:all']);
+
+/*
+|--------------------------------------------------------------------------
+| Authenticated Admin Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::prefix('admin')->middleware('auth:administrator')->group( function() {
+    Route::name('admin.home')->get('/', 'Admin\DashboardController@index');
+    Route::name('admin')->resource('/venues', 'Admin\VenuesController');
+    Route::name('admin')->resource('/events', 'Admin\EventsController');
+    Route::name('admin')->resource('/users', 'Admin\UsersController');
 });
 
-Route::group(['prefix' => 'user', 'middleware' => 'auth:all'], function() {
+/*
+|--------------------------------------------------------------------------
+| Authenticated User Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::prefix('user')->middleware('auth:all')->group( function() {
     Route::name('user.home')->get('/', 'User\UsersController@home');
     Route::name('user.events')->get('/events', 'User\UsersController@events');
 });
 
-Route::group(['middleware' => 'auth:all'], function() {
-    Route::get('/logout', ['as' => 'authenticated.logout', 'uses' => 'Auth\LoginController@logout']);
-    Route::get('/activate/{token}', ['as' => 'authenticated.activate', 'uses' => 'ActivateController@activate']);
-    Route::get('/activate', ['as' => 'authenticated.activation-resend', 'uses' => 'ActivateController@resend']);
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::prefix('api')->middleware('auth:all')->group( function () {
+    Route::name('api.fetch-event')->get('/event', 'API\EventController@fetchEvent');
+    Route::name('api.event-checkin')->post('/event', 'API\EventController@eventCheckIn');
+    Route::name('api.get-participants')->get('/event/{id}', 'API\EventController@getParticipants');
+    Route::name('api.set-role')->post('/user', 'API\UserController@setRole');
 });
 
-Auth::routes(['login' => 'auth.login', 'middleware' => 'auth:all']);
+/*
+|--------------------------------------------------------------------------
+| Temporary SparkPost mail test route
+|--------------------------------------------------------------------------
+*/
 
-Route::group(['prefix' => 'api', 'middleware' => 'auth:all'], function () {
-    Route::get('/event', 'API\EventController@fetchEvent');
-    Route::post('/event', 'API\EventController@eventCheckIn');
-    Route::get('/event/{id}', 'API\EventController@getParticipants');
-    Route::post('/user', 'API\UserController@setRole');
-});
-
-
-// Temporary SparkPost mail test route
-Route::get('/sparkpost', function () {
-    Mail::send('mail.test', [], function ($message) {
-        $message
-            ->from('contact@txkug.com', 'TXKUG Admin')
-            ->to('stephen.dumas@smith-blair.com', 'Stephen Dumas')
-            ->subject('From TXKUG with ❤');
-  });
-});
+//Route::get('/sparkpost', function () {
+//    Mail::send('mail.test', [], function ($message) {
+//        $message
+//            ->from('contact@txkug.com', 'TXKUG Admin')
+//            ->to('stephen.dumas@smith-blair.com', 'Stephen Dumas')
+//            ->subject('From TXKUG with ❤');
+//  });
+//});
