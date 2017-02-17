@@ -43,7 +43,7 @@
                         <tbody>
                         @foreach ($venue->events as $event)
                             <tr>
-                                <td><a href="/admin/events/{{ $event->slug }}">{{ $event->event_name }}</a></td>
+                                <td><a href="/admin/events/{{ $event->slug }}">{{ $event->event_type->event_type }}</a></td>
                                 <td>{{ $event->event_date->format('m/j/Y') }}</td>
                                 <td style="text-align:center;">{{ $event->participants->count() }}</td>
                             </tr>

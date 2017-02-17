@@ -2,7 +2,8 @@
 
 @section('content')
 
-    <h3>{{ $event->event_name }}</h3>
+    <h3>{{ $event->event_type->event_type }}</h3>
+    <h5>{{ $event->event_title }}</h5>
 
     <hr class="mb-1" />
 

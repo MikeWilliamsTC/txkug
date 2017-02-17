@@ -14,11 +14,13 @@
 
 @stop
 
-@section('footer')
-
+@section('footer_scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
     <script>
         $(document).ready(function() {
+            $('.event-type-select').material_select();
             $('.venue-select').material_select();
+
             $('.event_date').pickadate({
                 format: 'yyyy-mm-dd'
             });
@@ -28,6 +30,7 @@
             $('.stops_at').pickatime({
                 twelvehour: false
             });
+
         });
     </script>
 
