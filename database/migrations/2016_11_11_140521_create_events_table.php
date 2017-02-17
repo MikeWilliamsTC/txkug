@@ -17,7 +17,7 @@ class CreateEventsTable extends Migration
             $table->increments('id');
             $table->string('slug');
             $table->integer('venue_id')->unsigned()->index();
-            $table->string('event_name');
+            $table->integer('event_type_id');
             $table->string('event_title');
             $table->text('event_description');
             $table->string('event_image')->nullable();

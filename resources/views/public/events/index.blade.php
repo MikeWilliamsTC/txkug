@@ -2,12 +2,11 @@
 
 @section('header_scripts')
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.print.min.css" />
 @stop
 
 @section('content')
 
-    <h3>Events Calendar </h3>
+    <h3>TXKUG Events Calendar </h3>
     <hr class="mb-2" />
 
     <div class="row">
@@ -23,24 +22,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js"></script>
     <script>
 
-//        $(document).ready(function() {
+        $(document).ready(function() {
 
             $('#events-calendar').fullCalendar({
+                height: 600,
                 header: {
-                    left: 'prev, next today',
-                    center: 'title',
-                    right: 'month,agendaWeek,agendaDay,listWeek'
+                    left: 'title',
+                    right: 'prev, next today'
                 },
                 navLinks: true, // can click day/week names to navigate views
                 editable: false,
                 eventLimit: false, // allow "more" link when too many events
                 events: [
-                    {title:'Training Day', start:'2017-02-14', end:'2017-02-14'},
-                    {title:'TXKUG Monthly Meeting', color: 'red', textColor: 'white', start:'2017-02-24', end:'2017-02-240'},
+                    @foreach ($events as $event)
+                    {
+                        title: "{{ $event->event_type->event_type }}",
+                        url: '/events/{{ $event->slug }}',
+                        start: "{{ $event->starts_at->format('Y-m-d h:i') }}",
+                        end: "{{ $event->stops_at->format('Y-m-d h:i') }}",
+                        color: '#4264AA',
+                        textColor: 'white',
+                    },
+                    @endforeach
                 ]
             });
 
-//        });
+        });
 
     </script>
 @stop

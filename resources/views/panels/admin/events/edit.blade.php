@@ -18,8 +18,9 @@
 
     <script>
         $(document).ready(function() {
-
+            $('.event-type-select').material_select();
             $('.venue-select').material_select();
+
             $('.event_date').pickadate({
                 format: 'yyyy-mm-dd'
             });
@@ -29,6 +30,7 @@
             $('.stops_at').pickatime({
                 twelvehour: false
             });
+
         });
     </script>
 

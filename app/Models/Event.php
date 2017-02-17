@@ -15,6 +15,11 @@ class Event extends Model
 
     protected $table = 'events';
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function sluggable()
     {
         return [
@@ -40,7 +45,7 @@ class Event extends Model
 
     protected $fillable = [
         'venue_id',
-        'event_name',
+        'event_type_id',
         'event_title',
         'event_description',
         'event_date',
@@ -53,6 +58,11 @@ class Event extends Model
         return $this->belongsTo(
             Venue::class, 'venue_id'
         );
+    }
+
+    // Each Event belongs to one Event Type
+    public function event_type() {
+        return $this->belongsTo(EventType::class, 'event_type_id');
     }
 
     // Each event can have many participants
