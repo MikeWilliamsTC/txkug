@@ -44,6 +44,6 @@ class DashboardController extends Controller {
         $total_participants = Participant::count();
         $avg_attendance = ($total_participants / $total_events);
 //
-        return view('panels.admin.home', compact('attendance_chart', 'attendance_detail_chart', 'venue_chart', 'total_events', 'avg_attendance'));
+        return view('admin.home', compact('attendance_chart', 'attendance_detail_chart', 'venue_chart', 'total_events', 'avg_attendance'));
     }
 }

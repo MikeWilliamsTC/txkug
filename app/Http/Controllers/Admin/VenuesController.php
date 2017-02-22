@@ -10,13 +10,13 @@ class VenuesController extends Controller
 {
     public function index()
     {
-        $venues = Venue::orderBy('venue_name')->paginate(10);
-        return view ('panels.admin.venues.index', compact('venues'));
+        $venues = Venue::orderBy('venue_name')->paginate(20);
+        return view ('admin.venues.index', compact('venues'));
     }
 
     public function create()
     {
-        return view ('panels.admin.venues.create');
+        return view ('admin.venues.create');
     }
 
     public function store(Request $request)
@@ -38,20 +38,20 @@ class VenuesController extends Controller
     public function show($slug)
     {
         $venue = Venue::findBySlug($slug);
-        return view ('panels.admin.venues.show', compact('venue'));
+        return view ('admin.venues.show', compact('venue'));
     }
 
     public function edit($slug)
     {
         $venue = Venue::findBySlug($slug);
-        return view ('panels.admin.venues.edit', compact('venue'));
+        return view ('admin.venues.edit', compact('venue'));
     }
 
     public function update(Request $request, $id)
     {
         $venue = Venue::find($id);
         $venue->update($request->all());
-        return redirect()->route('admin.venues.index');
+        return redirect()->route('admin.venues.show', ['slug' => $venue->slug]);
     }
 
     public function destroy($id)

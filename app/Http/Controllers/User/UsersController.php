@@ -13,7 +13,7 @@ class UsersController extends Controller
 {
     public function home() {
 
-        return view('panels.user.home');
+        return view('user.home');
 
     }
 
@@ -25,6 +25,6 @@ class UsersController extends Controller
 
         $user = User::with('roles', 'participations')->orderBy('last_name')->find(Auth::id());
 
-        return view ('panels.user.events', compact('user', 'event'));
+        return view ('user.events', compact('user', 'event'));
     }
 }

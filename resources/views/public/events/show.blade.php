@@ -1,46 +1,37 @@
 @extends('layouts.app')
 
-@section('header_scripts')
-
-@stop
-
 @section('content')
 
-    <h3>{{ $event->event_type->event_type }}</h3>
-    <h5>{{ $event->event_title }}</h5>
+    @component('sections.breadcrumbs')
+        @slot('title')
+            Events
+        @endslot
+    @endcomponent
 
-    <hr class="mb-1" />
+    @component('sections.public-layout')
+        @slot('content')
 
-    <div class="row">
-        <div class="col-md-6">
-            <p>
-                {{ $event->event_date->format('l F d, Y') }} from
-                {{ $event->starts_at->format('h:i A') }} - {{ $event->stops_at->format('h:i A') }}<br />
-            </p>
-
-            <div class="card z-depth-1">
-                <div class="view overlay hm-white-slight">
-                    <img src="/img/rainbow-fiber.jpg" class="img-responsive" alt="{{ $event->event_title }}">
-                </div>
-                <div class="card-block">
-                    <h4 class="card-title">{{ $event->event_title }}</h4>
-                    <hr>
-                    <p class="card-text">{!! $event->event_description !!}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="c-content-title-1">
+                        <h3 class="c-font-uppercase c-font-bold">{{ $event->event_type->event_type }}</h3>
+                        <div class="c-content-divider c-divider-sm c-theme-bg"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <p>
 
-                {{ $event->venue->venue_name }}
-            </p>
-            <div class="card z-depth-1">
-                <div id="event-map" class="z-depth-1 map-container" style="height: 375px"></div>
+            <div class="row">
+                <div class="col-md-8">
+                    @include('sections.event-detail')
+                </div>
+
+                <div class="col-md-4">
+                    <div id="event-map" class="z-depth-1 map-container" style="min-height: 250px">
+                </div>
             </div>
-        </div>
-    </div>
 
-
+        @endslot
+    @endcomponent
 
 @stop
 
