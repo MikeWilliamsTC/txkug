@@ -1,19 +1,40 @@
+<!-- BEGIN: LAYOUT/FOOTERS/FOOTER-2 -->
+<a name="footer"></a>
+<footer class="c-layout-footer c-layout-footer-3 c-bg-dark">
 
-<footer class="page-footer center-on-small-only">
-
-    <div class="social-section wow fadeIn" data-wow-delay="0.3s">
-        <ul>
-            <li><a href="https://txkug.slack.com" target="_blank" class="btn-floating btn-small btn-dribbble" data-toggle="tooltip" data-placement="top" title="Visit our Slack Team"><i class="fa fa-hashtag"> </i></a></li>
-            <li><a href="https://www.facebook.com/txkug/?fref=ts" target="_blank" class="btn-floating btn-small btn-fb"><i class="fa fa-facebook" data-toggle="tooltip" data-placement="top" title="Visit our Facebook Page"> </i></a></li>
-            <li><a href="https://twitter.com/Txkug" target="_blank" class="btn-floating btn-small btn-tw"><i class="fa fa-twitter" data-toggle="tooltip" data-placement="top" title="Visit our Twitter Page"> </i></a></li>
-            <li><a href="https://la.linkedin.com/in/texarkana-area-it-users-group-471730130?trk=pub-pbmap" target="_blank" class="btn-floating btn-small btn-li"><i class="fa fa-linkedin" data-toggle="tooltip" data-placement="top" title="Visit our LinkedIn Page"> </i></a></li>
-        </ul>
+    <div class="c-prefooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="c-container c-first">
+                        <div class="c-content-title-1">
+                            <h3 class="c-font-uppercase c-font-bold c-font-white">TXK
+                                <span class="c-theme-font">UG</span>
+                            </h3>
+                            <div class="c-line-left hide"></div>
+                            <p class="c-text">
+                                TXKUG is a
+                                community of information technology professionals who come together in the spirit
+                                of learning and fellowship.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="footer-copyright">
-        <div class="container-fluid">
-            © @php echo date('Y') @endphp <a href="http://www.txkug.com"> Texarkana Area IT Users Group </a>
+    <div class="c-postfooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-12 c-col">
+                    <p class="c-copyright c-font-grey"> Copyright <?php echo date('Y'); ?> &copy; {{ env('ORG_NAME') }}
+                        <span class="c-font-grey-3">All Rights Reserved.</span>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 
 </footer>
+<!-- END: LAYOUT/FOOTERS/FOOTER-2 -->

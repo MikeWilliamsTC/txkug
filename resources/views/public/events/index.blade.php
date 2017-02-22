@@ -6,12 +6,19 @@
 
 @section('content')
 
-    <h3>TXKUG Events Calendar </h3>
-    <hr class="mb-2" />
+    @component('sections.breadcrumbs')
+        @slot('title')
+            Events Calendar
+        @endslot
+    @endcomponent
 
-    <div class="row">
-        <div class="col-md-12">
-            <div id='events-calendar'></div>
+    <div class="c-content-box c-size-md c-bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id='events-calendar'></div>
+                </div>
+            </div>
         </div>
     </div>
 

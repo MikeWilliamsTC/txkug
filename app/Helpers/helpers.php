@@ -4,7 +4,11 @@
  *  Create active class for menu items
  */
 
-function set_active($path, $active = 'active') {
+function set_active($path, $active = 'c-active active') {
+    return Request::is($path) ? $active: '';
+}
+
+function set_sidebar_active($path, $active = 'c-active c-open') {
     return Request::is($path) ? $active: '';
 }
 

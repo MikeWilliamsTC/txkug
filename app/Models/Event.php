@@ -31,7 +31,7 @@ class Event extends Model
 
     public function getEventSlugAttribute()
     {
-        return $this->event_name . '-' . $this->event_date->format('m-d-Y');
+        return $this->event_title;
     }
 
     protected $dates = [
@@ -48,6 +48,7 @@ class Event extends Model
         'event_type_id',
         'event_title',
         'event_description',
+        'event_image',
         'event_date',
         'starts_at',
         'stops_at'
