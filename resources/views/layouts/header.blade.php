@@ -1,5 +1,6 @@
 <!-- BEGIN: HEADER -->
 <header class="c-layout-header c-layout-header-4 c-layout-header-default-mobile" data-minimize-offset="80">
+{{--<header class="c-layout-header c-layout-header-3 c-layout-header-3-custom-menu c-layout-header-default-mobile" data-minimize-offset="80">--}}
     <div class="c-navbar">
         <div class="container">
             <div class="c-navbar-wrapper clearfix">
@@ -37,6 +38,7 @@
                                 </li>
                             @endif
                             <li class="c-link {{ set_active('user*') }}">
+                                {{--<img class="c-link img-circle" src="{{ Auth::user()->social->avatar_32 }}">--}}
                                 <a href="{{ route('user.home') }}" class="c-link">{{ Auth::user()->name }}</a>
                             </li>
                             <li class="c-link">
