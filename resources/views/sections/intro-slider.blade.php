@@ -18,7 +18,7 @@
                     <div class="tp-caption lft" data-x="center" data-y="center" data-voffset="110" data-speed="900" data-start="2000" data-transform_idle="o:1;" data-transform_in="x:100;y:100;rX:120;scaleX:0.75;scaleY:0.75;o:0;s:500;e:Back.easeInOut;"
                          data-transform_out="x:100;y:100;rX:120;scaleX:0;scaleY:0;o:0;s:500;e:Back.easeInOut;">
                         <button type="button" class="c-action-btn btn btn-lg c-btn-square c-btn-blue c-btn-bold c-btn-uppercase" data-wow-delay="0.2s" data-toggle="modal" data-target="#joinSlackTeamModal">
-                            Join Our Slack Team
+                            JOIN US ON SLACK!
                         </button>
                     </div>
                 </li>

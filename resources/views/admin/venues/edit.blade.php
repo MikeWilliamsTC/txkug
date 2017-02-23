@@ -29,7 +29,7 @@
 
                     @include('errors.error')
 
-                    {!! Form::model($venue, ['route' => ['admin.venues.update', $venue->id], 'method' => 'PUT', 'class' => 'form-horizontal']) !!}
+                    {!! Form::model($venue, ['route' => ['admin.venues.update', $venue->slug], 'method' => 'PUT', 'class' => 'form-horizontal']) !!}
                         @include('admin.venues.form')
                     {!! Form::close() !!}
 

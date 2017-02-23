@@ -19,7 +19,7 @@ class VenuesController extends Controller
         return view ('admin.venues.create');
     }
 
-    public function store(Request $request)
+    public function store(Venue $venue, Request $request)
     {
         $this->validate($request, [
             'venue_name' => 'required',
@@ -31,32 +31,38 @@ class VenuesController extends Controller
             'lng' => 'required',
         ]);
 
-        Venue::create($request->all());
-        return redirect()->route('admin.venues.index');
+        $venue->create($request->all());
+        return redirect()->route('admin.venues.index', ['slug' => $venue->slug]);
     }
 
-    public function show($slug)
+    public function show(Venue $venue)
     {
-        $venue = Venue::findBySlug($slug);
         return view ('admin.venues.show', compact('venue'));
     }
 
-    public function edit($slug)
+    public function edit(Venue $venue)
     {
-        $venue = Venue::findBySlug($slug);
         return view ('admin.venues.edit', compact('venue'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Venue $venue, Request $request)
     {
-        $venue = Venue::find($id);
+        $this->validate($request, [
+            'venue_name' => 'required',
+            'street_address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zip_code' => 'required',
+            'lat' => 'required',
+            'lng' => 'required',
+        ]);
+
         $venue->update($request->all());
         return redirect()->route('admin.venues.show', ['slug' => $venue->slug]);
     }
 
-    public function destroy($id)
+    public function destroy(Venue $venue)
     {
-        $venue = Venue::find($id);
         $venue->delete();
         return redirect()->route('admin.venues.index');
     }

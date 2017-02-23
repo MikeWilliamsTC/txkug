@@ -24,7 +24,7 @@ class Event extends Model
     {
         return [
             'slug' => [
-                'source' => 'event_slug'
+                'source' => 'event_title'
             ]
         ];
     }

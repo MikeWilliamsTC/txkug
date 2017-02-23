@@ -11,6 +11,11 @@ class Venue extends Model
 
     protected $table = 'venues';
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function sluggable()
     {
         return [

@@ -7,9 +7,9 @@
 @section('content')
 
     @component('sections.breadcrumbs')
-        @slot('title')
-            Events Calendar
-        @endslot
+    @slot('title')
+    Events Calendar
+    @endslot
     @endcomponent
 
     <div class="c-content-box c-size-md c-bg-white">
@@ -28,9 +28,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js"></script>
     <script>
-
         $(document).ready(function() {
-
             $('#events-calendar').fullCalendar({
                 height: 600,
                 header: {
@@ -41,7 +39,7 @@
                 editable: false,
                 eventLimit: false, // allow "more" link when too many events
                 events: [
-                    @foreach ($events as $event)
+                        @foreach ($events as $event)
                     {
                         title: "{{ $event->event_type->event_type }}",
                         url: '/events/{{ $event->slug }}',
@@ -53,8 +51,6 @@
                     @endforeach
                 ]
             });
-
         });
-
     </script>
 @stop
