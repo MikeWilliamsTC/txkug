@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('header_scripts')
+    <link href="{{ asset('assets/plugins/datatables/media/css/datatables.bootstrap.min.css') }}" rel="stylesheet" />
+@stop
+
 @section('content')
 
     @component('sections.breadcrumbs')
@@ -15,7 +19,7 @@
             </div>
 
             <div class="table-responsive">
-                <table class="table table-hover table-striped table-hover">
+                <table id="venues-table" class="table table-hover table-striped table-hover">
                     <thead>
                         <tr class="c-theme-bg">
                             <th class="c-font-white">Venue Name</th>
@@ -38,4 +42,16 @@
 
         @endslot
     @endcomponent
+@stop
+
+@section('footer_scripts')
+    <script src="{{ asset('assets/plugins/datatables/media/js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables/media/js/dataTables.bootstrap.min.js') }}" type="text/javascript"></script>
+    <script>
+        $(document).ready(function() {
+            $('#venues-table').DataTable({
+                "order": [[ 0, "asc" ]]
+            });
+        });
+    </script>
 @stop
