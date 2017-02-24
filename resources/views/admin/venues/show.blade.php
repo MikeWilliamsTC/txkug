@@ -8,7 +8,7 @@
             @endslot
     @endcomponent
 
-    @component('sections.admin-layout')
+    @component('layouts.admin-layout')
         @slot('content')
 
 

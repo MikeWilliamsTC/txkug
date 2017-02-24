@@ -8,7 +8,7 @@
         @endslot
     @endcomponent
 
-    @component('sections.user-layout')
+    @component('layouts.user-layout')
 
         @slot('content')
 

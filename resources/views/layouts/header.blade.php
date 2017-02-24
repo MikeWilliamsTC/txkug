@@ -1,6 +1,5 @@
 <!-- BEGIN: HEADER -->
 <header class="c-layout-header c-layout-header-4 c-layout-header-default-mobile" data-minimize-offset="80">
-{{--<header class="c-layout-header c-layout-header-3 c-layout-header-3-custom-menu c-layout-header-default-mobile" data-minimize-offset="80">--}}
     <div class="c-navbar">
         <div class="container">
             <div class="c-navbar-wrapper clearfix">
@@ -10,7 +9,7 @@
                         <img src="{{ asset('assets/base/img/layout/logos/txkug-logo.png') }}" alt="TXKUG" class="c-desktop-logo-inverse">
                         <img src="{{ asset('assets/base/img/layout/logos/txkug-logo.png') }}" alt="TXKUG" class="c-mobile-logo">
                     </a>
-                    <button class="c-hor-nav-toggler" type="button" data-target="c-mega-menu">
+                    <button class="c-hor-nav-toggler" type="button" data-target=".c-mega-menu">
                         <span class="c-line"></span>
                         <span class="c-line"></span>
                         <span class="c-line"></span>
@@ -51,4 +50,3 @@
         </div>
     </div>
 </header>
-<!-- END: HEADER -->

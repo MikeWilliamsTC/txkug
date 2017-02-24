@@ -12,7 +12,7 @@
         @endslot
     @endcomponent
 
-    @component('sections.admin-layout')
+    @component('layouts.admin-layout')
         @slot('content')
             <div class="c-content-title-1">
                 <h3 class="c-font-uppercase c-font-bold">Venue List</h3>
