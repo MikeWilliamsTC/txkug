@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header_scripts')
-    <link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="{{ asset('assets/plugins/datatables/media/css/datatables.bootstrap.min.css') }}" rel="stylesheet" />
 @stop
 
 @section('content')
@@ -49,12 +49,12 @@
 @stop
 
 @section('footer_scripts')
-    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js" type="text/javascript"></script>
-    <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables/media/js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables/media/js/dataTables.bootstrap.min.js') }}" type="text/javascript"></script>
     <script>
         $(document).ready(function() {
             $('#events-table').DataTable({
-                "order": [[ 1, "desc" ]]
+                "order": [[ 0, "desc" ]]
             });
         });
     </script>

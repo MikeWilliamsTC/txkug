@@ -10,11 +10,13 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
         <link rel="shortcut icon" href="/favicon.ico" />
 
-        <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700&amp;subset=all' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700&amp;subset=all' rel='stylesheet'>
+
         <link href="{{ asset('assets/plugins/socicon/socicon.css') }}" rel="stylesheet" />
         <link href="{{ asset('assets/plugins/bootstrap-social/bootstrap-social.css') }}" rel="stylesheet" />
         <link href="{{ asset('assets/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" />
         <link href="{{ asset('assets/plugins/simple-line-icons/simple-line-icons.min.css') }}" rel="stylesheet" />
+
         <link href="{{ asset('assets/plugins/animate/animate.min.css') }}" rel="stylesheet" />
         <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
 
@@ -78,8 +80,7 @@
         <script src="{{ asset('assets/base/js/components-shop.js') }}" type="text/javascript"></script>
         <script src="{{ asset('assets/base/js/app.js') }}" type="text/javascript"></script>
         <script>
-            $(document).ready(function()
-            {
+            $(document).ready(function() {
                 App.init(); // init core
             });
         </script>
