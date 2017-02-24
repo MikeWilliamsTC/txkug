@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header_scripts')
-    <link href="{{ asset('assets/plugins/datatables/media/css/datatables.bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/plugins/datatables/media/css/dataTables.bootstrap.min.css') }}" rel="stylesheet" />
 @stop
 
 @section('content')
@@ -32,7 +32,7 @@
                     <tbody>
                     @foreach ($events as $event)
                         <tr>
-                            <td><a href="/admin/events/{{ $event->slug }}">{{ $event->event_date->format('F j, Y') }}</a></td>
+                            <td><a href="/admin/events/{{ $event->slug }}">{{ $event->event_date->format('Y-m-d') }}</a></td>
                             <td>{{ $event->event_type->event_type }}</td>
                             <td>{{ $event->venue->venue_name }}</td>
                             <td class="c-center">{{ $event->participants->count() }}</td>
@@ -41,8 +41,6 @@
                     </tbody>
                 </table>
             </div>
-
-            {{--{{ $events->links('vendor.pagination.custom-round') }}--}}
 
         @endslot
     @endcomponent

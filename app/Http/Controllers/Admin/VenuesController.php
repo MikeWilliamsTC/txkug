@@ -10,7 +10,7 @@ class VenuesController extends Controller
 {
     public function index()
     {
-        $venues = Venue::orderBy('venue_name')->paginate(20);
+        $venues = Venue::orderBy('venue_name')->get();
         return view ('admin.venues.index', compact('venues'));
     }
 
