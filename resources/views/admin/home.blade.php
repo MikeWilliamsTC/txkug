@@ -12,6 +12,11 @@
 
         @slot('content')
 
+            <div class="c-content-title-1">
+                <h3 class="c-font-uppercase c-font-bold">Dashboard</h3>
+            </div>
+            <div class="c-content-divider c-divider-sm c-theme-bg"></div>
+
             <div class="c-layout-sidebar-content ">
                 <div class="row">
                     <div class="col-lg-12">
@@ -91,7 +96,7 @@
                 responsive: true,
                 title: {
                     display: true,
-                    text: 'Event Attendance '
+                    text: 'Attendance '
                 },
                 scales: {
                     xAxes: [
@@ -177,7 +182,7 @@
                 responsive: true,
                 title: {
                     display: true,
-                    text: 'Venues Used'
+                    text: 'Venues'
                 }
             }
         });

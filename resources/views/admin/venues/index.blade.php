@@ -17,6 +17,7 @@
             <div class="c-content-title-1">
                 <h3 class="c-font-uppercase c-font-bold">Venue List</h3>
             </div>
+            <div class="c-content-divider c-divider-sm c-theme-bg"></div>
 
             <div class="table-responsive">
                 <table id="venues-table" class="table table-hover table-striped table-hover">
