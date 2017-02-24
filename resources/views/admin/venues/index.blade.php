@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header_scripts')
-    <link href="{{ asset('assets/plugins/datatables/media/css/datatables.bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/plugins/datatables/media/css/dataTables.bootstrap.min.css') }}" rel="stylesheet" />
 @stop
 
 @section('content')
@@ -38,7 +38,6 @@
                     </tbody>
                 </table>
             </div>
-            {{ $venues->links('vendor.pagination.custom-round') }}
 
         @endslot
     @endcomponent

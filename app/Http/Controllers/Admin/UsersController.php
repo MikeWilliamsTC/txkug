@@ -11,7 +11,7 @@ class UsersController extends Controller
 {
     public function index() {
 
-        $users = User::with('roles', 'social', 'participations')->orderBy('last_name')->paginate(20);
+        $users = User::with('roles', 'social', 'participations')->orderBy('last_name')->get();
 
         return view ('admin.users.index', compact('users'));
 
