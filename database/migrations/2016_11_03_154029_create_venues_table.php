@@ -11,7 +11,7 @@ class CreateVenuesTable extends Migration
             $table->increments('id');
             $table->string('slug');
             $table->string('venue_name');
-            $table->string('venue_note');
+            $table->text('venue_note');
             $table->string('street_address');
             $table->string('city');
             $table->string('state')->nullable();

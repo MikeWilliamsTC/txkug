@@ -93,7 +93,7 @@ class EventsController extends Controller
             // Now handle the file upload, name, size, etc.
             $event_image_file = $request->file('event_image_file');
             $imageName = strtolower(str_random(20) . '.' . $event_image_file->getClientOriginalExtension());
-            $event_image_file = Image::make($event_image_file->getRealPath())->resize(851, 315);
+            $event_image_file = Image::make($event_image_file->getRealPath())->resize(1200, 600);
             $event_image_file->save($imagePath . '/' . $imageName);
             $event_image_file->file_name = $imageName;
             $request['event_image'] = $imageName;

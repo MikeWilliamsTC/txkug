@@ -20,7 +20,8 @@
 
     {!! Form::label('state', 'State', ['class' => 'col-sm-1 control-label']) !!}
     <div class="col-sm-2">
-        {!! Form::text('state', null, ['class' => 'form-control']) !!}
+        {!! Form::select('state', $states, null, ['class' => 'form-control', 'placeholder' => 'State']) !!}
+        {{--{!! Form::text('state', null, ['class' => 'form-control']) !!}--}}
     </div>
 
     {!! Form::label('zip_code', 'Zip Code', ['class' => 'col-sm-2 control-label']) !!}

@@ -16,7 +16,11 @@ class VenuesController extends Controller
 
     public function create()
     {
-        return view ('admin.venues.create');
+        $states = [
+            'AR' => 'AR',
+            'TX' => 'TX',
+        ];
+        return view ('admin.venues.create', compact('states'));
     }
 
     public function store(Venue $venue, Request $request)
@@ -42,7 +46,12 @@ class VenuesController extends Controller
 
     public function edit(Venue $venue)
     {
-        return view ('admin.venues.edit', compact('venue'));
+        $states = [
+            'AR' => 'AR',
+            'TX' => 'TX',
+        ];
+
+        return view ('admin.venues.edit', compact('venue', 'states'));
     }
 
     public function update(Venue $venue, Request $request)
