@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('header_scripts')
+    <link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+@stop
+
 @section('content')
 
     @component('sections.breadcrumbs')
@@ -13,9 +17,10 @@
             <div class="c-content-title-1">
                 <h3 class="c-font-uppercase c-font-bold">Event List</h3>
             </div>
+            <div class="c-content-divider c-divider-sm c-theme-bg"></div>
 
             <div class="table-responsive">
-                <table class="table table-hover table-striped table-hover">
+                <table id='events-table' class="table table-hover table-striped table-bordered table-hover">
                     <thead>
                         <tr class="c-theme-bg">
                             <th class="c-font-white">Date</th>
@@ -37,8 +42,20 @@
                 </table>
             </div>
 
-            {{ $events->links('vendor.pagination.custom-round') }}
+            {{--{{ $events->links('vendor.pagination.custom-round') }}--}}
 
         @endslot
     @endcomponent
+@stop
+
+@section('footer_scripts')
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function() {
+            $('#events-table').DataTable({
+                "order": [[ 1, "desc" ]]
+            });
+        });
+    </script>
 @stop
