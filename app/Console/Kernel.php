@@ -68,7 +68,7 @@ class Kernel extends ConsoleKernel
                 $user->notify(new SendEventReminderToSlack($event));
             }
 
-        })->weekly()->mondays()->at('13:30');
+        })->weekly()->mondays()->at('14:00');
 
     }
 
