@@ -63,7 +63,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function social()
     {
         return $this->hasOne('App\Models\Social');
-//        return $this->hasMany('App\Models\Social');
     }
 
     public function routeNotificationForSlack()
