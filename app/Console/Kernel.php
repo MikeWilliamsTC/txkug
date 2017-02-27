@@ -53,6 +53,7 @@ class Kernel extends ConsoleKernel
                 ]);
             });
         })->daily();
+<<<<<<< HEAD
 
         // Schedule for Sending Event Notifications to Slack Channel
         $schedule->call(function() {
@@ -69,6 +70,8 @@ class Kernel extends ConsoleKernel
 
         })->weekly()->mondays()->at('13:30');
 
+=======
+>>>>>>> d622301d72111a966cbc041a74bee801cb75f312
     }
 
     /**
