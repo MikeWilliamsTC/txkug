@@ -7,9 +7,9 @@
 @section('content')
 
     @component('sections.breadcrumbs')
-    @slot('title')
-    Events Calendar
-    @endslot
+        @slot('title')
+            Events Calendar
+        @endslot
     @endcomponent
 
     <div class="c-content-box c-size-md c-bg-white">

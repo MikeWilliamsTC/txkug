@@ -2,13 +2,18 @@
 
 namespace App\Console;
 
+use App\Notifications\SendEventReminderToSlack;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use SlackApi;
 use App\Models\Social;
+use App\Models\Event;
+use Carbon\Carbon;
+use Mail;
+
 
 class Kernel extends ConsoleKernel
 {
+
     /**
      * The Artisan commands provided by your application.
      *
@@ -29,6 +34,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
 
+        // Schedule for Updating User tables with Slack Data
         $schedule->call(function () {
             $socials = Social::get();
             $socials->map(function ($social) {
@@ -46,7 +52,23 @@ class Kernel extends ConsoleKernel
                     'avatar_192' => $response['user']['profile']['image_192'],
                 ]);
             });
-        })->everyMinute();
+        })->daily();
+
+        // Schedule for Sending Event Notifications to Slack Channel
+        $schedule->call(function() {
+
+            $event = Event::with('venue')
+                ->where('stops_at', '>=', Carbon::now()->toDateTimeString())
+                ->orderBy('stops_at')
+                ->first();
+
+            if ( $event->count() > 0 ) {
+                $user = \App\Models\User::find(1);
+                $user->notify(new SendEventReminderToSlack($event));
+            }
+
+        })->weekly()->mondays()->at('13:30');
+
     }
 
     /**

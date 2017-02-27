@@ -26,7 +26,7 @@
             <table id="users-table" class="table table-hover table-striped display responsive nowrap" cellspacing="0" width="100%">
                 <thead class="c-theme-bg">
                 <tr>
-                    <th class="all c-font-white">Name</th>
+                    <th colspan='2' class="all c-font-white">Name</th>
                     <th class="min-tablet c-font-white c-center">Role</th>
                     <th class="min-tablet  c-font-white c-center">Joined</th>
                     <th class="min-tablet c-font-white c-center">Attendance</th>
@@ -37,6 +37,8 @@
                     <tr>
                         <td>
                             <img class="img-circle c-margin-r-40" src="{{ $user->social->avatar_32 }}">
+                        </td>
+                        <td>
                             <a href="{{ route('admin.users.show', $user->slug) }}">{{ $user->last_name }}, {{ $user->first_name }}</a>
                         </td>
                         <td class="c-center">
