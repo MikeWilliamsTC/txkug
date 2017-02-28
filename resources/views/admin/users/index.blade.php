@@ -36,23 +36,17 @@
                 @foreach ($users as $user)
                     <tr>
                         <td>
-                            <img class="img-circle c-margin-r-40" src="{{ $user->social->avatar_32 }}">
+                            <img class="img-circle c-margin-r-40" src="{{ $user->slack_avatar_32 }}">
                         </td>
                         <td>
                             <a href="{{ route('admin.users.show', $user->slug) }}">{{ $user->last_name }}, {{ $user->first_name }}</a>
                         </td>
-                        <td class="c-center">
-                            @if ( $user->roles[0]->id == 2 )
-                                <span class="c-font-red-3 c-font-bold">Admin</span>
-                            @else
-                                User
-                            @endif
-                        </td>
+                        <td class="c-center">{{ title_case($user->role->name ) }}</td>
                         <td class="c-center">
                             {{ $user->created_at->format('m-d-Y') }}
                         </td>
                         <td class="c-center">
-                            {{ $user->participations->count() }}
+                            {{ $user->attendance->count() }}
                         </td>
                     </tr>
                 @endforeach

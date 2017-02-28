@@ -23,15 +23,15 @@
 
             <div class="row">
                 <div class="col-md-3">
-                    <img src="{{ $user->social->avatar_192 }}" class="img-responsive img-thumbnail">
+                    <img src="{{ $user->slack_avatar_192 }}" class="img-responsive img-thumbnail">
                 </div>
 
                 <div class="col-md-9">
                     <p>
-                        {{ $user->first_name }} {{ $user->last_name }}<br />
-                        @if ( $user->social->title  ) {{ $user->social->title }} <br /> @endif
-                        <a href="mailto:{{ $user->email }}">{{ $user->email }}</a><br />
-                        Role: @if ( $user->roles[0]->id == 2 ) Admin @else User @endif <br />
+                        Name: {{ $user->first_name }} {{ $user->last_name }}<br />
+                        Slack handle: {{ '@' . $user->slack_handle }}<br />
+                        @if ( $user->slack_title  ) Slack Title: {{ $user->slack_title }} <br /> @endif
+                        Email: <a href="mailto:{{ $user->email }}">{{ $user->email }}</a><br />
                         Joined: {{ $user->created_at->format('l d, Y') }}
                     </p>
                 </div>

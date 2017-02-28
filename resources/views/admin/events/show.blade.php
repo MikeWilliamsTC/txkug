@@ -58,14 +58,14 @@
                             This event hasn't started yet.
                         </div>
                     @elseif ( \Carbon\Carbon::now() > $event->stops_at )
-                        @if ($event->participants->count() )
+                        @if ($event->attendees->count() )
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">{{ $event->participants->count() }} {{ str_plural('Attendee', $event->participants->count()) }} </h3>
+                                    <h3 class="panel-title">{{ $event->attendees->count() }} {{ str_plural('Attendee', $event->attendees->count()) }} </h3>
                                 </div>
                                 <div class="panel-body">
                                     <ul class="c-content-list-1 c-theme c-separator-dot">
-                                        @foreach ($event->participants as $attendee )
+                                        @foreach ($event->attendees as $attendee )
                                             <li><a href="/admin/users/{{ $attendee->user->slug }}">{{ $attendee->user->last_name }}, {{ $attendee->user->first_name }}</a></li>
                                         @endforeach
                                     </ul>

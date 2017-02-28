@@ -5,10 +5,11 @@ namespace App\Console;
 use App\Notifications\SendEventReminderToSlack;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use App\Models\Social;
+use SlackApi;
+use App\Models\User;
 use App\Models\Event;
 use Carbon\Carbon;
-use Mail;
+//use Mail;
 
 
 class Kernel extends ConsoleKernel
@@ -31,35 +32,43 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
 
         // Schedule for Updating User tables with Slack Data
         $schedule->call(function () {
-            $socials = Social::get();
-            $socials->map(function ($social) {
-                $response = SlackApi::execute('users.info', ['user' => $social->social_id]);
+            $users = User::get();
+            $users->map(function ($user) {
+                $response = SlackApi::execute('users.info', ['user' => $user->slack_id]);
 
                 if( ! empty($response['user']['profile']['title'])){
-                    $title = $response['user']['profile']['title'];
+                    $slack_title = $response['user']['profile']['title'];
                 } else {
-                    $title = NULL;
+                    $slack_title = NULL;
                 }
 
-                $social->update([
-                    'title' => $title,
-                    'avatar_32' => $response['user']['profile']['image_32'],
-                    'avatar_192' => $response['user']['profile']['image_192'],
+                $user->update([
+                    'slack_handle' => $response['user']['name'],
+                    'slack_title' => $slack_title,
+                    'slack_avatar_32' => $response['user']['profile']['image_32'],
+                    'slack_avatar_192' => $response['user']['profile']['image_192'],
                 ]);
             });
         })->daily();
 
 
-        // Schedule for Sending Event Notifications to Slack Channel
+        /**
+         * Scheduler for Sending Event Notifications to Slack Channel
+         *
+         * Find any event scheduled for 4 days from today OR scheduled for today
+         * Run the scheduler daily at 8:30 am CST
+         */
+
         $schedule->call(function() {
 
+            // Find any event schedule for 4 days from today OR scheduled for today
             $event = Event::with('venue')
-                ->where('stops_at', '>=', Carbon::now()->toDateTimeString())
+                ->where('event_date', '=', Carbon::today()->addDays(4))
+                ->orWhere('event_date', '=', Carbon::today()->addDays(1))
+                ->orWhere('event_date', '=', Carbon::now()->toDateTimeString())
                 ->orderBy('stops_at')
                 ->first();
 

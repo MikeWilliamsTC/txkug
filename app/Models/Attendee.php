@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Participant extends Model
+class Attendee extends Model
 {
-    protected $table = 'participants';
+    protected $table = 'attendees';
 
     protected $dates = [
         'created_at',

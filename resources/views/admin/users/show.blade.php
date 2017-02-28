@@ -23,14 +23,14 @@
 
             <div class="row">
                 <div class="col-md-3">
-                    <img src="{{ $user->social->avatar_192 }}" class="img-responsive">
+                    <img src="{{ $user->slack_avatar_192 }}" class="img-responsive">
                 </div>
 
                 <div class="col-md-9">
                     <p>
-                        @if ( $user->social->title  ) {{ $user->social->title }} <br /> @endif
-                        <a href="mailto:{{ $user->email }}">{{ $user->email }}</a><br />
-                        Role: @if ( $user->roles[0]->id == 2 ) Admin @else User @endif <br />
+                        Slack handle: {{ '@' . $user->slack_handle }}<br />
+                        @if ( $user->slack_title  ) Slack Title: {{ $user->slack_title }} <br /> @endif
+                        Email: <a href="mailto:{{ $user->email }}">{{ $user->email }}</a><br />
                         Joined: {{ $user->created_at->format('l d, Y') }}
                     </p>
                 </div>
@@ -40,10 +40,10 @@
                 <div class="col-md-12">
                     <h2>Event Attendance</h2>
                     <p>
-                        {{ $user->first_name }} has attended  {{ $user->participations->count() }} {{ str_plural('event', $user->participations->count()) }}
+                        {{ $user->first_name }} has attended  {{ $user->attendance->count() }} {{ str_plural('event', $user->attendance->count()) }}
                     </p>
 
-                    @if($user->participations->count() > 0 )
+                    @if($user->attendance->count() > 0 )
                         <div class="table-responsive">
                             <table class="table table-hover table-striped table-hover">
                                 <thead class="c-theme-bg">
@@ -55,7 +55,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($user->participations as $attendance)
+                                @foreach ($user->attendance as $attendance)
                                     <tr>
                                         <td><a href="/admin/events/{{ $attendance->events->event_type->slug }}">{{ $attendance->events->event_type->event_type }}</td>
                                         <td><a href="/admin/venues/{{ $attendance->events->venue->slug }}">{{ $attendance->events->venue->venue_name }}</a></td>

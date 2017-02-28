@@ -15,7 +15,7 @@ class EventsController extends Controller
 
     public function index()
     {
-        $events = Event::with('event_type', 'venue', 'participants')->orderBy('event_date', 'desc')->get();
+        $events = Event::with('event_type', 'venue', 'attendees')->orderBy('event_date', 'desc')->get();
         return view ('admin.events.index', compact('events'));
     }
 

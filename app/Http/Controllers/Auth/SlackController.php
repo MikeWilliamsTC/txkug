@@ -6,17 +6,13 @@ use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
-use App\Traits\ActivationTrait;
-use App\Models\Social;
+
 use App\Models\User;
 use App\Models\Role;
 use SlackApi;
 
-class SocialController extends Controller
+class SlackController extends Controller
 {
-
-    use ActivationTrait;
-
     public function getSocialRedirect( $provider )
     {
 
@@ -46,7 +42,7 @@ class SocialController extends Controller
 
         $user = Socialite::driver( $provider )->user();
 
-        $socialUser = null;
+        $slackUser = null;
 
         //Check is this email present
         $userCheck = User::where('email', '=', $user->email)->first();
@@ -58,84 +54,74 @@ class SocialController extends Controller
         }
 
         if (!empty($userCheck)) {
-            $socialUser = $userCheck;
+            $slackUser = $userCheck;
         }
         else {
 
-            $sameSocialId = Social::where('social_id', '=', $user->id)
+            $sameSlackId = User::where('slack_id', '=', $user->id)
                 ->where('provider', '=', $provider )
                 ->first();
 
-            if (empty($sameSocialId)) {
+            if (empty($sameSlackId)) {
 
                 //There is no combination of this social id and provider, so create new one
-                $newSocialUser = new User;
-                $newSocialUser->email = $email;
+                $newUser = new User;
+
+                $newUser->email = $email;
                 $name = explode(' ', $user->name);
 
                 if (count($name) >= 1) {
-                    $newSocialUser->first_name = $name[0];
+                    $newUser->first_name = $name[0];
                 }
-
                 if (count($name) >= 2) {
-                    $newSocialUser->last_name = $name[1];
+                    $newUser->last_name = $name[1];
                 }
 
-                $newSocialUser->password = bcrypt(str_random(16));
-                $newSocialUser->token = str_random(64);
-                $newSocialUser->activated = !config('settings.activation');
-                $newSocialUser->save();
+                $newUser->password = bcrypt(str_random(16));
+                $newUser->token = str_random(64);
+                $newUser->provider = $provider;
+                $newUser->slack_id = $user->id;
 
-                $socialData = new Social;
+                // Default to user role
+                $role = Role::whereName('user')->first();
+                $newUser->role_id = $role->id;
 
-                // Slack
-                $socialData->social_id = $user->id;
-
-                // Slack Provider
-                $socialData->provider = $provider;
-
-                // Slack Data: Avatars, Title
-                $slackData = SlackApi::execute('users.info', ['user' => $socialData->social_id]);
+                // Slack Data: Handle, Title, Avatars
+                $slackData = SlackApi::execute('users.info', ['user' => $newUser->slack_id]);
+                $newUser->slack_handle = $slackData['user']['name'];
 
                 if( ! empty($slackData['user']['profile']['title'])){
-                    $title = $slackData['user']['profile']['title'];
+                    $slack_title = $slackData['user']['profile']['title'];
                 } else {
-                    $title = NULL;
+                    $slack_title = NULL;
                 }
 
-                $socialData->title = $title;
-                $socialData->avatar_32 = $slackData['user']['profile']['image_32'];
-                $socialData->avatar_192 = $slackData['user']['profile']['image_192'];
+                $newUser->slack_title = $slack_title;
+                $newUser->slack_avatar_32 = $slackData['user']['profile']['image_32'];
+                $newUser->slack_avatar_192 = $slackData['user']['profile']['image_192'];
+                $newUser->save();
 
-                $newSocialUser->social()->save($socialData);
-
-                // Add role
-                $role = Role::whereName('user')->first();
-                $newSocialUser->assignRole($role);
-
-                $this->initiateEmailActivation($newSocialUser);
-
-                $socialUser = $newSocialUser;
+                $slackUser = $newUser;
 
             }
             else {
 
                 //Load this existing social user
-                $socialUser = $sameSocialId->user;
+                $slackUser = $sameSlackId->user;
 
             }
 
         }
 
-        auth()->login($socialUser, true);
+        auth()->login($slackUser, true);
 
-        if ( auth()->user()->hasRole('user')) {
+        if ( auth()->user()->role('user')) {
 
             return redirect()->route('user.home');
 
         }
 
-        if ( auth()->user()->hasRole('administrator')) {
+        if ( auth()->user()->role('administrator')) {
 
             return redirect()->route('user.home');
 

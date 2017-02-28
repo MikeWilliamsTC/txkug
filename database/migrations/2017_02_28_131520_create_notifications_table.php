@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSocialLogins extends Migration
+class CreateNotificationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +13,11 @@ class CreateSocialLogins extends Migration
      */
     public function up()
     {
-        Schema::create('social_logins', function (Blueprint $table) {
+        Schema::create('notifications', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('provider', 32);
-            $table->text('social_id');
+            $table->boolean('newsletter')->default(false);
+            $table->boolean('event_reminder')->default(false);
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateSocialLogins extends Migration
      */
     public function down()
     {
-        Schema::drop('social_logins');
+        Schema::drop('notifications');
     }
 }

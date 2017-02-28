@@ -27,7 +27,7 @@
                     <th class="all c-font-white">Date</th>
                     <th class="all c-font-white">Event Type</th>
                     <th class="min-tablet c-font-white">Venue</th>
-                    <th class="min-tablet c-center c-font-white">Participants</th>
+                    <th class="min-tablet c-center c-font-white">Attendees</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -36,7 +36,7 @@
                         <td><a href="/admin/events/{{ $event->slug }}">{{ $event->event_date->format('Y-m-d') }}</a></td>
                         <td>{{ $event->event_type->event_type }}</td>
                         <td>{{ $event->venue->venue_name }}</td>
-                        <td class="c-center">{{ $event->participants->count() }}</td>
+                        <td class="c-center">{{ $event->attendees->count() }}</td>
                     </tr>
                 @endforeach
                 </tbody>
