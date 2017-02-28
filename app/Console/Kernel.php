@@ -52,7 +52,7 @@ class Kernel extends ConsoleKernel
                     'slack_avatar_192' => $response['user']['profile']['image_192'],
                 ]);
             });
-        })->everyMinute();
+        })->daily();
 
 
         /**
