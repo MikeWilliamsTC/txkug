@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\Role;
+use Carbon\Carbon;
 
 class RoleSeeder extends Seeder {
 
@@ -9,8 +9,8 @@ class RoleSeeder extends Seeder {
         DB::table('roles')->delete();
 
         DB::table('roles')->insert(array(
-            array('name'   => 'user'),
-            array('name'   => 'administrator'),
+            array('name'   => 'user', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()),
+            array('name'   => 'administrator', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()),
         ));
     }
 }

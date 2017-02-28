@@ -13,7 +13,7 @@ class UsersController extends Controller
 {
     public function home() {
 
-        $user = User::with('roles', 'social', 'participations')->findOrFail(Auth::id());
+        $user = User::with('role', 'attendance')->findOrFail(Auth::id());
         return view('user.home', compact('user'));
 
     }
@@ -23,7 +23,7 @@ class UsersController extends Controller
             ->where('stops_at', '>=', Carbon::now()->toDateTimeString())
             ->orderBy('stops_at')
             ->first();
-        $user = User::with('roles', 'participations')->orderBy('last_name')->find(Auth::id());
+        $user = User::with('role', 'attendance')->orderBy('last_name')->find(Auth::id());
         return view ('user.events', compact('user', 'event'));
     }
 }

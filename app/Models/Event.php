@@ -64,9 +64,9 @@ class Event extends Model
         return $this->belongsTo(EventType::class, 'event_type_id');
     }
 
-    // Each event can have many participants
-    public function participants() {
-        return $this->hasMany(Participant::class,'event_id');
+    // Each event can have many attendees
+    public function attendees() {
+        return $this->hasMany(Attendee::class,'event_id');
     }
 
     public function formEventDateAttribute($date) {
@@ -87,7 +87,7 @@ class Event extends Model
 
         static::deleted(function($event)
         {
-            $event->participants()->delete();
+            $event->attendees()->delete();
         });
     }
 }

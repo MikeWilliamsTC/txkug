@@ -17,8 +17,8 @@ Route::name('events.show')->get('/events/{slug}', 'EventsController@show');
 |--------------------------------------------------------------------------
 */
 
-Route::name('social.redirect')->get('/social/redirect/{provider}', 'Auth\SocialController@getSocialRedirect');
-Route::name('social.handle')->get('/social/handle/{provider}', 'Auth\SocialController@getSocialHandle');
+Route::name('social.redirect')->get('/social/redirect/{provider}', 'Auth\SlackController@getSocialRedirect');
+Route::name('social.handle')->get('/social/handle/{provider}', 'Auth\SlackController@getSocialHandle');
 Route::name('authenticated.logout')->get('/logout', 'Auth\LoginController@logout')->middleware('auth:all');
 Auth::routes(['login' => 'auth.login', 'middleware' => 'auth:all']);
 

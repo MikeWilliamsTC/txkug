@@ -7,7 +7,6 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\SlackMessage;
-use Carbon\Carbon;
 
 class UserHasCheckedInToMeeting extends Notification
 {
@@ -41,6 +40,7 @@ class UserHasCheckedInToMeeting extends Notification
         return (new SlackMessage)
             ->success()
             ->from('TXKUG Admin', ':white_check_mark:')
+            ->to('#meeting-checkins')
             ->content('TXKUG Meeting Check-in')
             ->attachment(function ($attachment) {
                 $attachment->title($this->user->first_name . ' ' . $this->user->last_name . ' has checked in');

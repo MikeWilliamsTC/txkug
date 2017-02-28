@@ -40,7 +40,7 @@ class SendEventReminderToSlack extends Notification
 
         return (new SlackMessage)
             ->success()
-            ->from('TXKUG', ':spiral_calendar_pad:')
+            ->from('TXKUG Event Notification', ':spiral_calendar_pad:')
             ->to('#txkug-website-dev')
             ->content($this->event->event_type->event_type)
             ->attachment(function ($attachment) use ($url) {

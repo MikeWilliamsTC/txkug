@@ -28,41 +28,30 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     protected $hidden = ['password', 'remember_token'];
 
-    // Each User is a participant  (participates in)
-    public function participations() {
+    // Each User can attend many events
+    public function attendance() {
         return $this->hasMany(
-            Participant::class, 'user_id'
+            Attendee::class, 'user_id'
         );
     }
 
-    public function roles()
-    {
-        return $this->belongsToMany('App\Models\Role')->withTimestamps();
+    // Each User is assigned a role
+    public function role() {
+        return $this->belongsTo(Role::class, 'role_id');
     }
 
+//    public function roles()
+//    {
+//        return $this->belongsToMany('App\Models\Role')->withTimestamps();
+//    }
+//
     public function hasRole($name)
     {
-        foreach($this->roles as $role)
-        {
-            if($role->name == $name) return true;
-        }
-
+//        foreach($this->roles as $role)
+//        {
+            if($this->role->name == $name) return true;
+//        }
         return false;
-    }
-
-    public function assignRole($role)
-    {
-        return $this->roles()->attach($role);
-    }
-
-    public function removeRole($role)
-    {
-        return $this->roles()->detach($role);
-    }
-
-    public function social()
-    {
-        return $this->hasOne('App\Models\Social');
     }
 
     public function routeNotificationForSlack()

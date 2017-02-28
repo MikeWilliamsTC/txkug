@@ -31,13 +31,15 @@
                                 <a href="{{ route('social.redirect', ['provider' => 'slack']) }}" class="c-link">Sign In</a>
                             </li>
                         @else
-                            @if(Auth::user()->hasRole('administrator'))
+                            <li class="c-link {{ set_active('directory*') }}">
+                                <a href="{{ route('user.home') }}" class="c-link">Member Directory</a>
+                            </li>
+                            @if(Auth::user()->role->name == 'administrator')
                                 <li class="c-link {{ set_active('admin*') }}">
                                     <a href="{{ route('admin.home') }}" class="c-link">Admin</a>
                                 </li>
                             @endif
                             <li class="c-link {{ set_active('user*') }}">
-                                {{--<img class="c-link img-circle" src="{{ Auth::user()->social->avatar_32 }}">--}}
                                 <a href="{{ route('user.home') }}" class="c-link">{{ Auth::user()->name }}</a>
                             </li>
                             <li class="c-link">

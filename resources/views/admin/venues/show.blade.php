@@ -73,7 +73,7 @@
                                     <tr>
                                         <td><a href="{{ route('admin.events.show', [$event->slug]) }}">{{ $event->event_type->event_type }}</a></td>
                                         <td>{{ $event->event_date->format('m/j/Y') }}</td>
-                                        <td class="c-center">{{ $event->participants->count() }}</td>
+                                        <td class="c-center">{{ $event->attendees->count() }}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

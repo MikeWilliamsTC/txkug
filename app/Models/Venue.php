@@ -62,9 +62,9 @@ class Venue extends Model
     }
 
     // Each venue's events can have many participants
-    public function participants() {
+    public function attendees() {
         return $this->hasManyThrough(
-            Participant::class, Event::class,
+            Attendee::class, Event::class,
             'venue_id', 'event_id'
         );
     }
@@ -78,7 +78,7 @@ class Venue extends Model
          */
         static::deleted(function($venue)
         {
-            $venue->participants()->delete();
+            $venue->attendees()->delete();
             $venue->events()->delete();
         });
     }

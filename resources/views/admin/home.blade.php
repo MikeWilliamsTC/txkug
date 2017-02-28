@@ -86,7 +86,7 @@
                     display: false,
                     data: [
                         @foreach($attendance_chart as $ac )
-                            "{{ $ac->participant_count }}",
+                            "{{ $ac->attendee_count }}",
                         @endforeach
                     ],
                     backgroundColor: 'rgba(2, 117, 216, 0.4)',
@@ -104,7 +104,7 @@
                             ticks: {
                                 beginAtZero:true,
                                 fixedStepSize: 1,
-                                max: {{ maxValueInArray($attendance_chart, "participant_count") + 1 }}
+                                max: {{ maxValueInArray($attendance_chart, "attendee_count") + 1 }}
                             }
                         }
                     ]

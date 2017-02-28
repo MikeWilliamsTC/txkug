@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateParticipantsTable extends Migration
+class CreateProfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateParticipantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('participants', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_id')->index();
-            $table->string('event_id')->index();
+            $table->integer('user_id')->unsigned()->index();
+            $table->string('company_name');
+            $table->string('facebook_url');
+            $table->string('twitter_url');
+            $table->string('linkedin_url');
             $table->timestamps();
         });
     }
@@ -26,8 +29,9 @@ class CreateParticipantsTable extends Migration
      *
      * @return void
      */
+
     public function down()
     {
-        Schema::drop('participants');
+        Schema::drop('profiles');
     }
 }
